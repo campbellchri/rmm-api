@@ -55,6 +55,7 @@ jobs:
             --cpu 2 \
             --min-instances 1 \
             --max-instances 10 \
+            --service-account 33219909686-compute@developer.gserviceaccount.com \
             --set-env-vars NODE_ENV=production \
             --set-env-vars APP_PORT=8080 \
             --set-env-vars BASE_PATH=/api \
