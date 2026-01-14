@@ -10,7 +10,7 @@ env:
   SERVICE_NAME: rmm-api-staging
   REPOSITORY: rmm-docker
   IMAGE_NAME: rmm-api
-  CLOUD_SQL_INSTANCE: remember-me-memorials-llc:us-central1:rmm-postgres
+  CLOUD_SQL_INSTANCE: remember-me-memorials-llc:us-central1:rmm-db
 
 jobs:
   deploy:
@@ -58,7 +58,7 @@ jobs:
             --service-account 33219909686-compute@developer.gserviceaccount.com \
             --set-env-vars NODE_ENV=production \
             --set-env-vars BASE_PATH=/api \
-            --set-env-vars DB_HOST="/cloudsql/remember-me-memorials-llc:us-central1:rmm-postgres" \
+            --set-env-vars DB_HOST="/cloudsql/remember-me-memorials-llc:us-central1:rmm-db" \
             --set-env-vars DB_PORT="${{ secrets.DB_PORT }}" \
             --set-env-vars DB_USERNAME="${{ secrets.DB_USERNAME }}" \
             --set-env-vars DB_PASSWORD="${{ secrets.DB_PASSWORD }}" \
