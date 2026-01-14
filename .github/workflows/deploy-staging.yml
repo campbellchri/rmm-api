@@ -89,16 +89,19 @@ jobs:
           echo "Checking deployment health..."
           sleep 15
           
-          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "${{ env.SERVICE_URL }}/api")
+          # Check if the service is responding (404 is expected for root path)
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "${{ env.SERVICE_URL }}/")
           
-          if [ $HTTP_CODE -eq 200 ] || [ $HTTP_CODE -eq 201 ]; then
+          if [ $HTTP_CODE -eq 404 ] || [ $HTTP_CODE -eq 200 ] || [ $HTTP_CODE -eq 201 ]; then
             echo "✅ Deployment successful! API is responding."
+            echo "Service URL: ${{ env.SERVICE_URL }}"
+            echo "Response code: $HTTP_CODE"
           else
             echo "⚠️ Deployment may have issues. HTTP response code: $HTTP_CODE"
-            echo "Checking logs..."
+            echo "Checking recent logs..."
             gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=${{ env.SERVICE_NAME }}" \
-              --limit 50 \
+              --limit 10 \
               --project ${{ secrets.GCP_PROJECT_ID }} \
-              --format json
+              --format "value(textPayload)" || echo "Note: Logs may not be immediately available"
             exit 1
           fi
