@@ -5,7 +5,7 @@ import {
     PatchResourceCombinedDecorators,
     ReadResourceCombinedDecorators,
 } from 'src/common/decorators/routes-decorators.decorator';
-import { ApiParam } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiParam } from '@nestjs/swagger';
 import { LandingModeService } from '../services/landing-mode.service';
 import { CreateLandingModeResponseDto } from '../dtos/response/create-landing-mode.response.dto';
 import { CreateLandingModeRequestDto } from '../dtos/request/create-landing-mode.request.dto';
@@ -18,7 +18,7 @@ import { UpdateLandingModeModel } from '../models/update-landing-mode.model';
 @Controller('landing-mode')
 export class LandingModeController {
     constructor(private readonly landingModeService: LandingModeService) { }
-
+    @ApiBearerAuth()
     @CreateResourceCombinedDecorators({
         additionalErrors: ['badRequest', 'conflict'],
         responseType: CreateLandingModeResponseDto,
@@ -42,6 +42,7 @@ export class LandingModeController {
         return ReadLandingModeResponseDto.fromEntities(records);
     }
 
+    @ApiBearerAuth()
     @ReadResourceCombinedDecorators({
         path: 'readById/:id',
         additionalErrors: ['badRequest', 'notFound'],
@@ -54,6 +55,7 @@ export class LandingModeController {
         return ReadLandingModeResponseDto.fromEntity(landingMode);
     }
 
+    @ApiBearerAuth()
     @PatchResourceCombinedDecorators({
         path: '/:id',
         additionalErrors: ['badRequest', 'notFound'],
@@ -69,6 +71,7 @@ export class LandingModeController {
         return CreateLandingModeResponseDto.fromModel(updatedLandingMode);
     }
 
+    @ApiBearerAuth()
     @DeleteResourceCombinedDecorators({
         path: '/:id',
         additionalErrors: ['badRequest', 'notFound'],

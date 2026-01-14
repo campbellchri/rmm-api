@@ -23,6 +23,7 @@ export class UserMediaController {
     @CreateResourceCombinedDecorators({
         responseType: CreateUserMediaResponseDto,
         additionalErrors: ['badRequest', 'conflict'],
+        public:true
     })
     async createMedia(
         @Body() dto: CreateUserMediaRequestDto,
@@ -37,6 +38,7 @@ export class UserMediaController {
         path: ':id',
         responseType: UpdateUserMediaResponseDto,
         additionalErrors: ['notFound', 'badRequest'],
+        public:true
     })
     async updateMedia(
         @Param('id') id: string,
@@ -51,6 +53,7 @@ export class UserMediaController {
         path: '/readById/:id',
         responseType: ReadUserMediaResponseDto,
         additionalErrors: ['notFound'],
+        public:true,
     })
     async getMediaById(@Param('id') id: string): Promise<ReadUserMediaResponseDto> {
         const media = await this.userMediaService.getMediaById(id);
@@ -62,6 +65,7 @@ export class UserMediaController {
         path: '',
         responseType: ReadUserMediaResponseDto,
         additionalErrors: ['notFound'],
+        public:true
     })
     async getAllMedia(): Promise<ReadUserMediaResponseDto[]> {
         const mediaList = await this.userMediaService.getAllMedia();
@@ -73,6 +77,7 @@ export class UserMediaController {
         path: 'memorial/:memorialId',
         responseType: ReadUserMediaResponseDto,
         additionalErrors: ['notFound', 'conflict'],
+        public:true
     })
     async getMediaByMemorialId(
         @Param('memorialId') memorialId: string,
@@ -88,6 +93,7 @@ export class UserMediaController {
         path: 'user/:userId',
         responseType: ReadUserMediaResponseDto,
         additionalErrors: ['notFound', 'conflict'],
+        public: true
     })
     async getMediaByUserId(
         @Param('userId') userId: string,
@@ -101,6 +107,7 @@ export class UserMediaController {
         path: ':id',
         responseType: ReadUserMediaResponseDto,
         additionalErrors: ['notFound', 'conflict'],
+        public: true,
     })
     async deleteMedia(@Param('id') id: string): Promise<{ id: string }> {
         return await this.userMediaService.deleteMedia(id);

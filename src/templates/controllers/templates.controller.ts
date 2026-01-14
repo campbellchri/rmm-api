@@ -8,12 +8,14 @@ import { UpdateTemplateResponseDto } from '../dtos/response/update-template-resp
 import { UpdateTemplateRequestDto } from '../dtos/request/update-template-request.dto';
 import { UpdateTemplateModel } from '../models/update-template-model';
 import { ReadTemplateResponseDto } from '../dtos/response/read-template-response.dto';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 
 @Controller('templates')
 export class TemplateController {
     constructor(private readonly templateService: TemplateService) { }
 
+    @ApiBearerAuth()
     @CreateResourceCombinedDecorators({
         responseType: CreateTemplateResponseDto,
         additionalErrors: ['badRequest', 'conflict'],
@@ -26,6 +28,8 @@ export class TemplateController {
         return CreateTemplateResponseDto.fromModel(template);
     }
 
+
+    @ApiBearerAuth()
     @PatchResourceCombinedDecorators({
         path: ':id',
         responseType: UpdateTemplateResponseDto,
@@ -39,6 +43,8 @@ export class TemplateController {
         return await this.templateService.updateTemplate(model);
     }
 
+
+    @ApiBearerAuth()
     @ReadResourceCombinedDecorators({
         path: '/readById/:id',
         responseType: ReadTemplateResponseDto,
@@ -51,16 +57,21 @@ export class TemplateController {
         return ReadTemplateResponseDto.fromEntity(template);
     }
 
+
+
     @ReadResourceCombinedDecorators({
         path: '',
         responseType: ReadTemplateResponseDto,
         additionalErrors: ['notFound'],
+        public: true
     })
     async getAllTemplates(): Promise<ReadTemplateResponseDto[]> {
         const templates = await this.templateService.getAllTemplates();
         return ReadTemplateResponseDto.fromEntities(templates);
     }
 
+    
+    @ApiBearerAuth()
     @ReadResourceCombinedDecorators({
         path: 'landing-mode/:landingModeId',
         responseType: ReadTemplateResponseDto,
@@ -75,6 +86,8 @@ export class TemplateController {
         return ReadTemplateResponseDto.fromEntities(templates);
     }
 
+
+    @ApiBearerAuth()
     @DeleteResourceCombinedDecorators({
         path: ':id',
         responseType: ReadTemplateResponseDto,

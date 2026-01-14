@@ -13,12 +13,13 @@ import { UpdateSubscriptionPackageResponseDto } from '../dtos/response/update-su
 import { ReadSubscriptionPackageResponseDto } from '../dtos/response/read-subscription-package-response.dto';
 import { CreateSubscriptionPackageModel } from '../models/create-subscription-package-model';
 import { UpdateSubscriptionPackageModel } from '../models/update-subscription-package-model';
-import { ApiOperation, ApiQuery, ApiResponse } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiQuery, ApiResponse } from '@nestjs/swagger';
 
 @Controller('subscription-packages')
 export class SubscriptionPackageController {
     constructor(private readonly subscriptionPackageService: SubscriptionPackageService) {}
 
+    @ApiBearerAuth()
     @CreateResourceCombinedDecorators({
         responseType: CreateSubscriptionPackageResponseDto,
         additionalErrors: ['badRequest'],
@@ -31,10 +32,12 @@ export class SubscriptionPackageController {
         return CreateSubscriptionPackageResponseDto.fromModel(packageEntity);
     }
 
+    @ApiBearerAuth()
     @ReadResourceCombinedDecorators({
         path: 'readById/:id',
         responseType: ReadSubscriptionPackageResponseDto,
         additionalErrors: ['notFound'],
+        public: true,
     })
     async getSubscriptionPackageById(
         @Param('id') id: string,
@@ -48,6 +51,7 @@ export class SubscriptionPackageController {
         path: 'getAll',
         responseType: ReadSubscriptionPackageResponseDto,
         additionalErrors: ['notFound'],
+        public: true,
     })
     async getAllSubscriptionPackages(
         @Query('includeInactive') includeInactive?: string,
@@ -59,10 +63,12 @@ export class SubscriptionPackageController {
 
     /** ✅ Update Subscription Package */
 
+    @ApiBearerAuth()
     @PatchResourceCombinedDecorators({
         path: ':id',
         responseType: UpdateSubscriptionPackageResponseDto,
         additionalErrors: ['notFound', 'badRequest'],
+        public: true,
     })
     async updateSubscriptionPackage(
         @Param('id') id: string,
@@ -74,6 +80,7 @@ export class SubscriptionPackageController {
     }
 
 
+    @ApiBearerAuth()
     @DeleteResourceCombinedDecorators({
         path: ':id',
         responseType: UpdateSubscriptionPackageResponseDto,

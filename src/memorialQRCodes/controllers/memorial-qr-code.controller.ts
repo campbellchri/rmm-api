@@ -22,6 +22,7 @@ export class MemorialQRCodeController {
     @CreateResourceCombinedDecorators({
         responseType: CreateMemorialQRCodeResponseDto,
         additionalErrors: ['badRequest', 'conflict'],
+        public:true
     })
     async createQRCode(
         @Body() dto: CreateMemorialQRCodeRequestDto,
@@ -36,6 +37,7 @@ export class MemorialQRCodeController {
         path: '/readById/:id',
         responseType: ReadMemorialQRCodeResponseDto,
         additionalErrors: ['notFound'],
+        public:true
     })
     async getQRCodeById(
         @Param('id') id: string,
@@ -49,6 +51,7 @@ export class MemorialQRCodeController {
         path: '/memorial/:memorialId',
         responseType: ReadMemorialQRCodeResponseDto,
         additionalErrors: ['notFound'],
+        public:true
     })
     async getQRCodeByMemorialId(
         @Param('memorialId') memorialId: string,
@@ -62,6 +65,7 @@ export class MemorialQRCodeController {
         path: ':id',
         responseType: UpdateMemorialQRCodeResponseDto,
         additionalErrors: ['notFound', 'badRequest'],
+        public:true
     })
     async updateQRCode(
         @Param('id') id: string,
@@ -77,6 +81,7 @@ export class MemorialQRCodeController {
         path: ':id',
         responseType: ReadMemorialQRCodeResponseDto,
         additionalErrors: ['notFound', 'conflict'],
+        public:true
     })
     async deleteQRCode(@Param('id') id: string): Promise<{ id: string }> {
         return await this.memorialQRCodeService.deleteQRCode(id);

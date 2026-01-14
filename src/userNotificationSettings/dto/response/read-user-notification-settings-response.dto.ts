@@ -10,8 +10,6 @@ export class ReadUserNotificationSettingResponseDto {
 
     return {
       id: model.id,
-      // title: model.title, // These fields don't exist in model
-      // description: model.description,
       userId: model.userId,
       IsInAppAllowed: model.IsInAppAllowed,
       IsEmailAllowed: model.IsEmailAllowed,
@@ -28,12 +26,6 @@ export class ReadUserNotificationSettingResponseDto {
 
   @ApiProperty()
   id: string;
-
-  // @ApiProperty()
-  // title: string; // These fields don't exist in model
-
-  // @ApiProperty()
-  // description: string;
 
   @ApiProperty()
   userId: string;

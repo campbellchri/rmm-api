@@ -3,7 +3,7 @@ import * as process from 'process';
 export default () => ({
     basePath: process.env.BASE_PATH,
     appUrl: process.env.APP_URL,
-    port: parseInt(process.env.PORT || process.env.APP_PORT, 10) || 4000,
+    port: parseInt(process.env.APP_PORT, 10) || 4000,
     enableSwagger: process.env.ENABLE_SWAGGER !== 'false',
     logLevel: 'trace',
     firebase: {
@@ -19,7 +19,7 @@ export default () => ({
         client_x509_cert_url: process.env.FIREBASE_CLIENT_X509_CERT_URL,
     },
     // googleMaps: {
-    //     apiKey: process.env.GOOGLE_MAPS_API_KEY,
+    //     apiKey: process.env.GOOGLE_MAPS_API_KEY || 'AIzaSyCV49m1bUVDAP6Sz8Q4dvvQlUCrw0GJHqY',
     // },
     jwt: {
         secret:

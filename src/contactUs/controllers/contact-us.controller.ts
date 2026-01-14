@@ -35,6 +35,7 @@ export class ContactUsController {
         path: 'get',
         responseType: ReadContactUsResponseDto,
         additionalErrors: ['notFound'],
+        public: true,
     })
     async getContactUs(): Promise<ReadContactUsResponseDto | null> {
         const contactUs = await this.contactUsService.getContactUs();

@@ -18,8 +18,7 @@ export async function configureSwagger(
 
     const document = SwaggerModule.createDocument(app, config);
 
-    // Don't write to filesystem in containerized environments
-    if (process.env.NODE_ENV === 'development' && !process.env.CONTAINERIZED) {
+    if (process.env.NODE_ENV !== 'production') {
         fs.writeFileSync('./swagger-spec.json', JSON.stringify(document, null, 2));
     }
 

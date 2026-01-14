@@ -10,7 +10,7 @@ import { CreateUserNotificationSettingModel } from '../models/user-notification-
 import { UpdateUserNotificationSettingModel } from '../models/user-notification-settings-update.model';
 import { ReadUserNotificationSettingResponseDto } from '../dto/response/read-user-notification-settings-response.dto';
 import { UpdateUserNotificationSettingsRequestDto } from '../dto/request/update-user-notification-settings-request.dto';
-import { ApiParam, ApiQuery } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiParam, ApiQuery } from '@nestjs/swagger';
 import { CreateUserNotificationSettingsResponseDto } from '../dto/response/create-user-notification-settings-response.dto';
 
 import { UpdateUserNotificationSettingsResponseDto } from '../dto/response/update-user-notification-settings-response.dto';
@@ -21,6 +21,7 @@ export class UserNotificationSettingsController {
     private readonly userNotificationSettingsService: UserNotificationSettingsService,
   ) { }
 
+  @ApiBearerAuth()
   @CreateResourceCombinedDecorators({
     responseType: ReadUserNotificationSettingResponseDto,
     additionalErrors: ['badRequest'],
@@ -33,6 +34,8 @@ export class UserNotificationSettingsController {
     return CreateUserNotificationSettingsResponseDto.fromModel(result);
   }
 
+
+@ApiBearerAuth()
   @ReadResourceCombinedDecorators({
     responseType: ReadUserNotificationSettingResponseDto,
     path: 'readById/:id',
@@ -63,6 +66,7 @@ export class UserNotificationSettingsController {
   //   return mapped;
   // }
 
+  @ApiBearerAuth()
   @ReadResourceCombinedDecorators({
     path: 'user/:userId',
     responseType: ReadUserNotificationSettingResponseDto,
@@ -76,6 +80,7 @@ export class UserNotificationSettingsController {
     return result ? ReadUserNotificationSettingResponseDto.fromModel(result) : null;
   }
 
+  @ApiBearerAuth()
   @PatchResourceCombinedDecorators({
     path: 'update/:id',
     responseType: ReadUserNotificationSettingResponseDto,

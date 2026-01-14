@@ -29,8 +29,6 @@ export class UserNotificationSettingsRepository extends BaseRepository {
 
       const newEntity = new UserNotificationSettingsEntity();
       newEntity.userId = data.userId;
-      // newEntity.title = data.title; // These fields don't exist in entity
-      // newEntity.description = data.description;
       newEntity.IsInAppAllowed = data.IsInAppAllowed;
       newEntity.IsEmailAllowed = data.IsEmailAllowed;
       newEntity.IsDesktopNotificationAllowed = data.IsDesktopNotificationAllowed;

@@ -22,6 +22,7 @@ export class UserTributeController {
     @CreateResourceCombinedDecorators({
         responseType: CreateUserTributeRequestDto,
         additionalErrors: ['badRequest', 'conflict'],
+        public:true
     })
     async createTribute(
         @Body() dto: CreateUserTributeRequestDto,
@@ -36,6 +37,7 @@ export class UserTributeController {
         path: ':id',
         responseType: UpdateUserTributesResponseDto,
         additionalErrors: ['notFound', 'badRequest'],
+        public:true
     })
     async updateTribute(
         @Param('id') id: string,
@@ -50,6 +52,7 @@ export class UserTributeController {
         path: '/readById/:id',
         responseType: ReadUserTributeResponseDto,
         additionalErrors: ['notFound'],
+        public:true
     })
     async getTributeById(@Param('id') id: string): Promise<ReadUserTributeResponseDto> {
         const tribute = await this.userTributeService.getTributeById(id);
@@ -61,6 +64,7 @@ export class UserTributeController {
         path: '',
         responseType: ReadUserTributeResponseDto,
         additionalErrors: ['notFound'],
+        public:true
     })
     async getAllTributes(): Promise<ReadUserTributeResponseDto[]> {
         const tributeList = await this.userTributeService.getAllTributes();
@@ -72,6 +76,7 @@ export class UserTributeController {
         path: 'memorial/:memorialId',
         responseType: ReadUserTributeResponseDto,
         additionalErrors: ['notFound', 'conflict'],
+        public:true
     })
     async getTributesByMemorialId(
         @Param('memorialId') memorialId: string,
@@ -85,6 +90,7 @@ export class UserTributeController {
         path: 'user/:userId',
         responseType: ReadUserTributeResponseDto,
         additionalErrors: ['notFound', 'conflict'],
+        public:true
     })
     async getTributesByUserId(
         @Param('userId') userId: string,
@@ -98,6 +104,7 @@ export class UserTributeController {
         path: ':id',
         responseType: ReadUserTributeResponseDto,
         additionalErrors: ['notFound', 'conflict'],
+        public:true
     })
     async deleteTribute(@Param('id') id: string): Promise<{ id: string }> {
         return await this.userTributeService.deleteTribute(id);

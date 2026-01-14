@@ -6,8 +6,6 @@ export class UserNotificationSettingReadModel {
   static fromEntity(entity: UserNotificationSettingsEntity): UserNotificationSettingReadModel {
     return {
       id: entity.id,
-      // title: entity.title, // These fields don't exist in entity
-      // description: entity.description,
       IsInAppAllowed: entity.IsInAppAllowed,
       IsEmailAllowed: entity.IsEmailAllowed,
       IsDesktopNotificationAllowed: entity.IsDesktopNotificationAllowed,
@@ -23,8 +21,6 @@ export class UserNotificationSettingReadModel {
   }
 
   id: string;
-  // title: string; // These fields don't exist in entity
-  // description: string;
   IsInAppAllowed: boolean;
   IsEmailAllowed: boolean;
   IsDesktopNotificationAllowed: boolean;

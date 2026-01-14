@@ -17,32 +17,29 @@ export class ComplaintController {
     constructor(private readonly complaintService: ComplaintService) {}
 
     /** ✅ Create Complaint */
-    @Post()
     @ApiOperation({ summary: 'Submit a complaint, suggestion, or message' })
     @ApiResponse({ status: 201, type: CreateComplaintResponseDto })
     @CreateResourceCombinedDecorators({
         responseType: CreateComplaintResponseDto,
         additionalErrors: ['badRequest'],
+        public: true,
     })
     async createComplaint(
         @Body() dto: CreateComplaintRequestDto,
-        @UserIdToken() userIdToken?: DecodedIdToken,
     ): Promise<CreateComplaintResponseDto> {
-        // If user is authenticated, link the complaint to their account
-        const userId = userIdToken?.uid;
-        const model = CreateComplaintModel.fromDto(dto, userId);
+        const model = CreateComplaintModel.fromDto(dto);
         const complaint = await this.complaintService.createComplaint(model);
         return CreateComplaintResponseDto.fromModel(complaint);
     }
 
     /** ✅ Get Complaint by ID */
-    @Get('readById/:id')
     @ApiOperation({ summary: 'Get a complaint by ID' })
     @ApiResponse({ status: 200, type: ReadComplaintResponseDto })
     @ReadResourceCombinedDecorators({
         path: 'readById/:id',
         responseType: ReadComplaintResponseDto,
         additionalErrors: ['notFound'],
+        public: true,
     })
     async getComplaintById(
         @Param('id') id: string,
@@ -52,11 +49,11 @@ export class ComplaintController {
     }
 
     /** ✅ Get All Complaints */
-    @Get()
     @ApiOperation({ summary: 'Get all complaints (Admin)' })
     @ApiResponse({ status: 200, type: [ReadComplaintResponseDto] })
     @ReadResourceCombinedDecorators({
         responseType: ReadComplaintResponseDto,
+        public: true,
     })
     async getAllComplaints(
         @Query('type') messageType?: string,
@@ -76,12 +73,12 @@ export class ComplaintController {
     }
 
     /** ✅ Get My Complaints (Current User) */
-    @Get('my-complaints')
     @ApiOperation({ summary: 'Get all complaints submitted by the current authenticated user' })
     @ApiResponse({ status: 200, type: [ReadComplaintResponseDto] })
     @ReadResourceCombinedDecorators({
         path: 'my-complaints',
         responseType: ReadComplaintResponseDto,
+        public: true,
     })
     async getMyComplaints(
         @UserIdToken() userIdToken: DecodedIdToken,

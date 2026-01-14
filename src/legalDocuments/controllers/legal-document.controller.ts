@@ -19,12 +19,12 @@ export class LegalDocumentController {
     constructor(private readonly legalDocumentService: LegalDocumentService) {}
 
     /** ✅ Create Legal Document */
-    @Post()
     @ApiOperation({ summary: 'Create a legal document (Privacy Policy or Terms and Conditions)' })
     @ApiResponse({ status: 201, type: CreateLegalDocumentResponseDto })
     @CreateResourceCombinedDecorators({
         responseType: CreateLegalDocumentResponseDto,
         additionalErrors: ['badRequest', 'conflict'],
+        public: true,
     })
     async createLegalDocument(
         @Body() dto: CreateLegalDocumentRequestDto,
@@ -35,13 +35,13 @@ export class LegalDocumentController {
     }
 
     /** ✅ Get Legal Document by ID */
-    @Get('readById/:id')
     @ApiOperation({ summary: 'Get a legal document by ID' })
     @ApiResponse({ status: 200, type: ReadLegalDocumentResponseDto })
     @ReadResourceCombinedDecorators({
         path: 'readById/:id',
         responseType: ReadLegalDocumentResponseDto,
         additionalErrors: ['notFound'],
+        public: true,
     })
     async getLegalDocumentById(
         @Param('id') id: string,
@@ -51,12 +51,12 @@ export class LegalDocumentController {
     }
 
     /** ✅ Get Legal Document by Type */
-    @Get('type/:type')
     @ApiOperation({ summary: 'Get a legal document by type (privacy_policy or terms_and_conditions)' })
     @ApiResponse({ status: 200, type: ReadLegalDocumentResponseDto })
     @ReadResourceCombinedDecorators({
         path: 'type/:type',
         responseType: ReadLegalDocumentResponseDto,
+        public: true,
     })
     async getLegalDocumentByType(
         @Param('type') type: string,
@@ -66,11 +66,11 @@ export class LegalDocumentController {
     }
 
     /** ✅ Get All Legal Documents */
-    @Get()
     @ApiOperation({ summary: 'Get all legal documents' })
     @ApiResponse({ status: 200, type: [ReadLegalDocumentResponseDto] })
     @ReadResourceCombinedDecorators({
         responseType: ReadLegalDocumentResponseDto,
+        public: true,
     })
     async getAllLegalDocuments(): Promise<ReadLegalDocumentResponseDto[]> {
         const documents = await this.legalDocumentService.getAllLegalDocuments();
@@ -78,13 +78,13 @@ export class LegalDocumentController {
     }
 
     /** ✅ Update Legal Document */
-    @Patch(':id')
     @ApiOperation({ summary: 'Update a legal document' })
     @ApiResponse({ status: 200, type: UpdateLegalDocumentResponseDto })
     @PatchResourceCombinedDecorators({
         path: ':id',
         responseType: UpdateLegalDocumentResponseDto,
         additionalErrors: ['notFound', 'badRequest'],
+        public: true,
     })
     async updateLegalDocument(
         @Param('id') id: string,
@@ -96,12 +96,12 @@ export class LegalDocumentController {
     }
 
     /** ✅ Upsert Legal Document (Update or Create) */
-    @Post('upsert/:type')
     @ApiOperation({ summary: 'Update or create a legal document by type (creates if not exists, updates if exists)' })
     @ApiResponse({ status: 200, type: CreateLegalDocumentResponseDto })
     @CreateResourceCombinedDecorators({
         path: 'upsert/:type',
         responseType: CreateLegalDocumentResponseDto,
+        public:true
     })
     async upsertLegalDocument(
         @Param('type') type: string,

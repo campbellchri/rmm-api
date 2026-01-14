@@ -30,6 +30,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "users"
         ]
@@ -70,6 +75,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "users"
         ]
@@ -97,6 +107,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "users"
         ]
@@ -130,6 +145,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "users"
         ]
@@ -170,6 +190,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "LandingMode"
         ]
@@ -227,6 +252,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "LandingMode"
         ]
@@ -276,6 +306,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "LandingMode"
         ]
@@ -316,6 +351,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "LandingMode"
         ]
@@ -356,6 +396,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "Template"
         ]
@@ -430,6 +475,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "Template"
         ]
@@ -470,6 +520,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "Template"
         ]
@@ -506,6 +561,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "Template"
         ]
@@ -545,6 +605,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "Template"
         ]
@@ -585,6 +650,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "Memorial"
         ]
@@ -610,6 +680,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "Memorial"
         ]
@@ -659,6 +734,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "Memorial"
         ]
@@ -699,6 +779,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "Memorial"
         ]
@@ -735,6 +820,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "Memorial"
         ]
@@ -780,6 +870,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "Memorial"
         ]
@@ -2298,6 +2393,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "SubscriptionPackage"
         ]
@@ -2334,6 +2434,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "SubscriptionPackage"
         ]
@@ -2419,6 +2524,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "SubscriptionPackage"
         ]
@@ -2456,6 +2566,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "SubscriptionPackage"
         ]
@@ -2493,6 +2608,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "UserNotificationSettings"
         ]
@@ -2532,6 +2652,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "UserNotificationSettings"
         ]
@@ -2568,6 +2693,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "UserNotificationSettings"
         ]
@@ -2617,6 +2747,11 @@
             "description": ""
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "UserNotificationSettings"
         ]
@@ -5533,12 +5668,6 @@
           "id": {
             "type": "string"
           },
-          "title": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
           "userId": {
             "type": "string"
           },
@@ -5565,8 +5694,6 @@
         },
         "required": [
           "id",
-          "title",
-          "description",
           "userId",
           "IsInAppAllowed",
           "IsEmailAllowed",

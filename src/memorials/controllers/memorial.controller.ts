@@ -20,12 +20,14 @@ import { UpdateMemorialModel } from '../models/update-memorial-model';
 import { ReadVideoMemorialModeResponseDto } from '../dtos/response/read-video-memorial-response.dto';
 import { ReadEventMemorialModeResponseDto } from '../dtos/response/read-event-memorial-response.dto';
 import { ReadFullMemorialResponseDto } from '../dtos/response/read-full-memorial-response.dto';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller('memorials')
 export class MemorialController {
     constructor(private readonly memorialService: MemorialService) { }
 
     /** ✅ Create Memorial */
+    @ApiBearerAuth()
     @CreateResourceCombinedDecorators({
         responseType: CreateMemorialResponseDto,
         additionalErrors: ['badRequest', 'conflict'],
@@ -59,10 +61,12 @@ export class MemorialController {
     }
 
     /** ✅ Update Memorial */
+    @ApiBearerAuth()
     @PatchResourceCombinedDecorators({
         path: ':id',
         responseType: UpdateMemorialResponseDto,
         additionalErrors: ['notFound', 'badRequest'],
+        
     })
     async updateMemorial(
         @Param('id') id: string,
@@ -74,6 +78,7 @@ export class MemorialController {
     }
 
     /** ✅ Get Memorial by ID */
+    @ApiBearerAuth()
     @ReadResourceCombinedDecorators({
         path: '/readById/:id',
         responseType: ReadMemorialResponseDto,
@@ -87,6 +92,7 @@ export class MemorialController {
     }
 
     /** ✅ Get All Memorials */
+    @ApiBearerAuth()
     @ReadResourceCombinedDecorators({
         path: '',
         responseType: ReadMemorialResponseDto,
@@ -98,6 +104,7 @@ export class MemorialController {
     }
 
     /** ✅ Get Memorials by Creator */
+    @ApiBearerAuth()
     @ReadResourceCombinedDecorators({
         path: 'creator/:creatorId/:memorialId',
         additionalErrors: ['notFound'],
@@ -123,6 +130,7 @@ export class MemorialController {
 
 
     /** ✅ Delete Memorial */
+    @ApiBearerAuth()
     @DeleteResourceCombinedDecorators({
         path: ':id',
         responseType: ReadMemorialResponseDto,

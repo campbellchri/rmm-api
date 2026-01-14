@@ -1,6 +1,6 @@
 import { Controller, Body } from '@nestjs/common';
 import { DecodedIdToken } from 'src/common/interfaces/decoded-id-token.interface';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CreateUserRequestDto } from '../dtos/requests/create-user.request.dto';
 import { UserResponseDto } from '../dtos/user.response.dto';
 import { CreateUserModel } from '../models/create-user-model'
@@ -25,19 +25,21 @@ import { UserIdToken } from 'src/common/decorators/user-id-token.decorator';
 export class UsersController {
   constructor(private readonly usersService: UsersService, private readonly logger: PinoLogger) { }
 
+  @ApiBearerAuth()
   @CreateResourceCombinedDecorators({ responseType: UserResponseDto })
   public async createUser(
     @Body() dto: CreateUserRequestDto,
     @UserIdToken() userIdToken: DecodedIdToken,
 
   ): Promise<UserResponseDto> {
-    this.logger.info('[UsersController] Creating user start', { id: userIdToken.user_id });
-    const createUserModel = await CreateUserModel.fromDto(dto, userIdToken?.user_id);
+    this.logger.info('[UsersController] Creating user start', { id: userIdToken.uid });
+    const createUserModel = await CreateUserModel.fromDto(dto, userIdToken?.uid);
     const userModel = await this.usersService.createUser(createUserModel);
-    this.logger.info('[UsersController] Creating user end', { id: userIdToken?.user_id });
+    this.logger.info('[UsersController] Creating user end', { id: userIdToken?.uid });
     return UserResponseDto.fromModel(userModel);
   }
 
+  @ApiBearerAuth()
   @PatchResourceCombinedDecorators({
     path: 'update/profile',
     responseType: UpdateUserResponseDto, // response DTO
@@ -47,11 +49,12 @@ export class UsersController {
     @Body() dto: UpdateUserRequestDto,
     @UserIdToken() userIdToken: DecodedIdToken,
   ): Promise<UpdateUserResponseDto> {
-    const updateModel = await UpdateUserModel.fromDto(dto, userIdToken?.userId);
+    const updateModel = await UpdateUserModel.fromDto(dto, userIdToken?.uid);
     const updatedUser = await this.usersService.updateUser(updateModel);
     return UpdateUserResponseDto.fromModel(updatedUser);
   }
 
+  @ApiBearerAuth()
   @ReadResourceCombinedDecorators({
     path: 'currentUser',
     responseType: UserResponseDto,
@@ -66,6 +69,8 @@ export class UsersController {
     return UserResponseDto.fromModel(user);
   }
 
+
+  @ApiBearerAuth()
   @PatchResourceCombinedDecorators({
     path: 'resetUserPassword',
     additionalErrors: ['badRequest', 'conflict'],
@@ -74,7 +79,7 @@ export class UsersController {
     @UserIdToken() userIdToken: DecodedIdToken,
     @Body() dto: UserUpdatePasswordRequestDto,
   ): Promise<UserPasswordResetResponseDto> {
-    const model = UpdateUserPasswordModel.fromDto(dto, userIdToken?.user_id);
+    const model = UpdateUserPasswordModel.fromDto(dto, userIdToken?.uid);
     const response = await this.usersService.resetUserPassword(model);
     console.log(response, ' response in controller');
     return UserPasswordResetResponseDto.fromModel(response);
