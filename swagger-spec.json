@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "paths": {
-    "/users": {
+    "/api/users": {
       "post": {
         "operationId": "UsersController_createUser",
         "parameters": [],
@@ -40,7 +40,7 @@
         ]
       }
     },
-    "/users/update/profile": {
+    "/api/users/update/profile": {
       "patch": {
         "operationId": "UsersController_updateUserProfile",
         "parameters": [],
@@ -85,7 +85,7 @@
         ]
       }
     },
-    "/users/currentUser": {
+    "/api/users/currentUser": {
       "get": {
         "operationId": "UsersController_getCurrentUser",
         "parameters": [],
@@ -117,7 +117,7 @@
         ]
       }
     },
-    "/users/resetUserPassword": {
+    "/api/users/resetUserPassword": {
       "patch": {
         "operationId": "UsersController_resetUserPassword",
         "parameters": [],
@@ -155,7 +155,7 @@
         ]
       }
     },
-    "/landing-mode": {
+    "/api/landing-mode": {
       "post": {
         "operationId": "LandingModeController_create",
         "parameters": [],
@@ -225,7 +225,7 @@
         ]
       }
     },
-    "/landing-mode/readById/{id}": {
+    "/api/landing-mode/readById/{id}": {
       "get": {
         "operationId": "LandingModeController_readById",
         "parameters": [
@@ -262,7 +262,7 @@
         ]
       }
     },
-    "/landing-mode/{id}": {
+    "/api/landing-mode/{id}": {
       "patch": {
         "operationId": "LandingModeController_update",
         "parameters": [
@@ -361,7 +361,7 @@
         ]
       }
     },
-    "/templates": {
+    "/api/templates": {
       "post": {
         "operationId": "TemplateController_createTemplate",
         "parameters": [],
@@ -431,7 +431,7 @@
         ]
       }
     },
-    "/templates/{id}": {
+    "/api/templates/{id}": {
       "patch": {
         "operationId": "TemplateController_updateTemplate",
         "parameters": [
@@ -530,7 +530,7 @@
         ]
       }
     },
-    "/templates/readById/{id}": {
+    "/api/templates/readById/{id}": {
       "get": {
         "operationId": "TemplateController_getTemplateById",
         "parameters": [
@@ -571,7 +571,7 @@
         ]
       }
     },
-    "/templates/landing-mode/{landingModeId}": {
+    "/api/templates/landing-mode/{landingModeId}": {
       "get": {
         "operationId": "TemplateController_getTemplatesByLandingModeId",
         "parameters": [
@@ -615,7 +615,7 @@
         ]
       }
     },
-    "/memorials": {
+    "/api/memorials": {
       "post": {
         "operationId": "MemorialController_createMemorial",
         "parameters": [],
@@ -690,7 +690,7 @@
         ]
       }
     },
-    "/memorials/{id}": {
+    "/api/memorials/{id}": {
       "patch": {
         "operationId": "MemorialController_updateMemorial",
         "parameters": [
@@ -789,7 +789,7 @@
         ]
       }
     },
-    "/memorials/readById/{id}": {
+    "/api/memorials/readById/{id}": {
       "get": {
         "operationId": "MemorialController_getMemorialById",
         "parameters": [
@@ -830,7 +830,7 @@
         ]
       }
     },
-    "/memorials/creator/{creatorId}/{memorialId}": {
+    "/api/memorials/creator/{creatorId}/{memorialId}": {
       "get": {
         "operationId": "MemorialController_getMemorialsByCreatorIdAndMode",
         "parameters": [
@@ -880,7 +880,7 @@
         ]
       }
     },
-    "/user-media": {
+    "/api/user-media": {
       "post": {
         "operationId": "UserMediaController_createMedia",
         "parameters": [],
@@ -945,7 +945,7 @@
         ]
       }
     },
-    "/user-media/{id}": {
+    "/api/user-media/{id}": {
       "patch": {
         "operationId": "UserMediaController_updateMedia",
         "parameters": [
@@ -1034,7 +1034,7 @@
         ]
       }
     },
-    "/user-media/readById/{id}": {
+    "/api/user-media/readById/{id}": {
       "get": {
         "operationId": "UserMediaController_getMediaById",
         "parameters": [
@@ -1070,7 +1070,7 @@
         ]
       }
     },
-    "/user-media/memorial/{memorialId}": {
+    "/api/user-media/memorial/{memorialId}": {
       "get": {
         "operationId": "UserMediaController_getMediaByMemorialId",
         "parameters": [
@@ -1109,7 +1109,7 @@
         ]
       }
     },
-    "/user-media/user/{userId}": {
+    "/api/user-media/user/{userId}": {
       "get": {
         "operationId": "UserMediaController_getMediaByUserId",
         "parameters": [
@@ -1148,7 +1148,7 @@
         ]
       }
     },
-    "/user-tributes": {
+    "/api/user-tributes": {
       "post": {
         "operationId": "UserTributeController_createTribute",
         "parameters": [],
@@ -1213,7 +1213,7 @@
         ]
       }
     },
-    "/user-tributes/{id}": {
+    "/api/user-tributes/{id}": {
       "patch": {
         "operationId": "UserTributeController_updateTribute",
         "parameters": [
@@ -1302,7 +1302,7 @@
         ]
       }
     },
-    "/user-tributes/readById/{id}": {
+    "/api/user-tributes/readById/{id}": {
       "get": {
         "operationId": "UserTributeController_getTributeById",
         "parameters": [
@@ -1338,7 +1338,7 @@
         ]
       }
     },
-    "/user-tributes/memorial/{memorialId}": {
+    "/api/user-tributes/memorial/{memorialId}": {
       "get": {
         "operationId": "UserTributeController_getTributesByMemorialId",
         "parameters": [
@@ -1377,7 +1377,7 @@
         ]
       }
     },
-    "/user-tributes/user/{userId}": {
+    "/api/user-tributes/user/{userId}": {
       "get": {
         "operationId": "UserTributeController_getTributesByUserId",
         "parameters": [
@@ -1416,7 +1416,7 @@
         ]
       }
     },
-    "/memorial-qr-codes": {
+    "/api/memorial-qr-codes": {
       "post": {
         "operationId": "MemorialQRCodeController_createQRCode",
         "parameters": [],
@@ -1456,7 +1456,7 @@
         ]
       }
     },
-    "/memorial-qr-codes/readById/{id}": {
+    "/api/memorial-qr-codes/readById/{id}": {
       "get": {
         "operationId": "MemorialQRCodeController_getQRCodeById",
         "parameters": [
@@ -1492,7 +1492,7 @@
         ]
       }
     },
-    "/memorial-qr-codes/memorial/{memorialId}": {
+    "/api/memorial-qr-codes/memorial/{memorialId}": {
       "get": {
         "operationId": "MemorialQRCodeController_getQRCodeByMemorialId",
         "parameters": [
@@ -1528,7 +1528,7 @@
         ]
       }
     },
-    "/memorial-qr-codes/{id}": {
+    "/api/memorial-qr-codes/{id}": {
       "patch": {
         "operationId": "MemorialQRCodeController_updateQRCode",
         "parameters": [
@@ -1617,7 +1617,7 @@
         ]
       }
     },
-    "/user-featured-memorials": {
+    "/api/user-featured-memorials": {
       "post": {
         "operationId": "UserFeaturedMemorialController_featureMemorial",
         "parameters": [],
@@ -1658,7 +1658,7 @@
         ]
       }
     },
-    "/user-featured-memorials/{memorialId}": {
+    "/api/user-featured-memorials/{memorialId}": {
       "delete": {
         "operationId": "UserFeaturedMemorialController_unfeatureMemorial",
         "parameters": [
@@ -1691,7 +1691,7 @@
         ]
       }
     },
-    "/user-featured-memorials/user/{userId}": {
+    "/api/user-featured-memorials/user/{userId}": {
       "get": {
         "operationId": "UserFeaturedMemorialController_getFeaturedMemorialsByUser",
         "parameters": [
@@ -1728,7 +1728,7 @@
         ]
       }
     },
-    "/user-featured-memorials/my-featured": {
+    "/api/user-featured-memorials/my-featured": {
       "get": {
         "operationId": "UserFeaturedMemorialController_getMyFeaturedMemorials",
         "parameters": [],
@@ -1756,7 +1756,7 @@
         ]
       }
     },
-    "/user-featured-memorials/check/{memorialId}": {
+    "/api/user-featured-memorials/check/{memorialId}": {
       "get": {
         "operationId": "UserFeaturedMemorialController_checkIfFeatured",
         "parameters": [
@@ -1795,7 +1795,7 @@
         ]
       }
     },
-    "/user-featured-memorials/readById/{id}": {
+    "/api/user-featured-memorials/readById/{id}": {
       "get": {
         "operationId": "UserFeaturedMemorialController_getFeaturedMemorialById",
         "parameters": [
@@ -1832,7 +1832,7 @@
         ]
       }
     },
-    "/contact-us/create": {
+    "/api/contact-us/create": {
       "post": {
         "operationId": "ContactUsController_createContactUs",
         "parameters": [],
@@ -1872,7 +1872,7 @@
         ]
       }
     },
-    "/contact-us/get": {
+    "/api/contact-us/get": {
       "get": {
         "operationId": "ContactUsController_getContactUs",
         "parameters": [],
@@ -1899,7 +1899,7 @@
         ]
       }
     },
-    "/contact-us/update": {
+    "/api/contact-us/update": {
       "patch": {
         "operationId": "ContactUsController_updateContactUs",
         "parameters": [],
@@ -1939,7 +1939,7 @@
         ]
       }
     },
-    "/contact-us/upsert": {
+    "/api/contact-us/upsert": {
       "post": {
         "operationId": "ContactUsController_upsertContactUs",
         "parameters": [],
@@ -1973,7 +1973,7 @@
         ]
       }
     },
-    "/complaints": {
+    "/api/complaints": {
       "post": {
         "operationId": "ComplaintController_createComplaint",
         "parameters": [],
@@ -2054,7 +2054,7 @@
         ]
       }
     },
-    "/complaints/readById/{id}": {
+    "/api/complaints/readById/{id}": {
       "get": {
         "operationId": "ComplaintController_getComplaintById",
         "parameters": [
@@ -2091,7 +2091,7 @@
         ]
       }
     },
-    "/complaints/my-complaints": {
+    "/api/complaints/my-complaints": {
       "get": {
         "operationId": "ComplaintController_getMyComplaints",
         "parameters": [],
@@ -2119,7 +2119,7 @@
         ]
       }
     },
-    "/legal-documents": {
+    "/api/legal-documents": {
       "post": {
         "operationId": "LegalDocumentController_createLegalDocument",
         "parameters": [],
@@ -2186,7 +2186,7 @@
         ]
       }
     },
-    "/legal-documents/readById/{id}": {
+    "/api/legal-documents/readById/{id}": {
       "get": {
         "operationId": "LegalDocumentController_getLegalDocumentById",
         "parameters": [
@@ -2223,7 +2223,7 @@
         ]
       }
     },
-    "/legal-documents/type/{type}": {
+    "/api/legal-documents/type/{type}": {
       "get": {
         "operationId": "LegalDocumentController_getLegalDocumentByType",
         "parameters": [
@@ -2257,7 +2257,7 @@
         ]
       }
     },
-    "/legal-documents/{id}": {
+    "/api/legal-documents/{id}": {
       "patch": {
         "operationId": "LegalDocumentController_updateLegalDocument",
         "parameters": [
@@ -2307,7 +2307,7 @@
         ]
       }
     },
-    "/legal-documents/upsert/{type}": {
+    "/api/legal-documents/upsert/{type}": {
       "post": {
         "operationId": "LegalDocumentController_upsertLegalDocument",
         "parameters": [
@@ -2361,7 +2361,7 @@
         ]
       }
     },
-    "/subscription-packages": {
+    "/api/subscription-packages": {
       "post": {
         "operationId": "SubscriptionPackageController_createSubscriptionPackage",
         "parameters": [],
@@ -2403,7 +2403,7 @@
         ]
       }
     },
-    "/subscription-packages/readById/{id}": {
+    "/api/subscription-packages/readById/{id}": {
       "get": {
         "operationId": "SubscriptionPackageController_getSubscriptionPackageById",
         "parameters": [
@@ -2444,7 +2444,7 @@
         ]
       }
     },
-    "/subscription-packages/getAll": {
+    "/api/subscription-packages/getAll": {
       "get": {
         "operationId": "SubscriptionPackageController_getAllSubscriptionPackages",
         "parameters": [
@@ -2480,7 +2480,7 @@
         ]
       }
     },
-    "/subscription-packages/{id}": {
+    "/api/subscription-packages/{id}": {
       "patch": {
         "operationId": "SubscriptionPackageController_updateSubscriptionPackage",
         "parameters": [
@@ -2576,7 +2576,7 @@
         ]
       }
     },
-    "/userNotificationSettings": {
+    "/api/userNotificationSettings": {
       "post": {
         "operationId": "UserNotificationSettingsController_create",
         "parameters": [],
@@ -2618,7 +2618,7 @@
         ]
       }
     },
-    "/userNotificationSettings/readById/{id}": {
+    "/api/userNotificationSettings/readById/{id}": {
       "get": {
         "operationId": "UserNotificationSettingsController_readById",
         "parameters": [
@@ -2662,7 +2662,7 @@
         ]
       }
     },
-    "/userNotificationSettings/user/{userId}": {
+    "/api/userNotificationSettings/user/{userId}": {
       "get": {
         "operationId": "UserNotificationSettingsController_getByUserId",
         "parameters": [
@@ -2703,7 +2703,7 @@
         ]
       }
     },
-    "/userNotificationSettings/update/{id}": {
+    "/api/userNotificationSettings/update/{id}": {
       "patch": {
         "operationId": "UserNotificationSettingsController_update",
         "parameters": [
@@ -2757,7 +2757,7 @@
         ]
       }
     },
-    "/user-answers": {
+    "/api/user-answers": {
       "post": {
         "operationId": "UserAnswersController_createAnswer",
         "parameters": [],
@@ -2822,7 +2822,7 @@
         ]
       }
     },
-    "/user-answers/{id}": {
+    "/api/user-answers/{id}": {
       "patch": {
         "operationId": "UserAnswersController_updateAnswer",
         "parameters": [
@@ -2911,7 +2911,7 @@
         ]
       }
     },
-    "/user-answers/readById/{id}": {
+    "/api/user-answers/readById/{id}": {
       "get": {
         "operationId": "UserAnswersController_getAnswerById",
         "parameters": [
@@ -2947,7 +2947,7 @@
         ]
       }
     },
-    "/user-questionnaires": {
+    "/api/user-questionnaires": {
       "post": {
         "operationId": "UserQuestionnaireController_createQuestionnaire",
         "parameters": [],
@@ -3012,7 +3012,7 @@
         ]
       }
     },
-    "/user-questionnaires/{id}": {
+    "/api/user-questionnaires/{id}": {
       "patch": {
         "operationId": "UserQuestionnaireController_updateQuestionnaire",
         "parameters": [
@@ -3101,7 +3101,7 @@
         ]
       }
     },
-    "/user-questionnaires/readById/{id}": {
+    "/api/user-questionnaires/readById/{id}": {
       "get": {
         "operationId": "UserQuestionnaireController_getQuestionnaireById",
         "parameters": [
@@ -3137,7 +3137,7 @@
         ]
       }
     },
-    "/user-questionnaire-answers": {
+    "/api/user-questionnaire-answers": {
       "post": {
         "operationId": "UserQuestionnaireAnswersController_create",
         "parameters": [],
@@ -3202,7 +3202,7 @@
         ]
       }
     },
-    "/user-questionnaire-answers/{id}": {
+    "/api/user-questionnaire-answers/{id}": {
       "patch": {
         "operationId": "UserQuestionnaireAnswersController_update",
         "parameters": [
@@ -3325,7 +3325,7 @@
         ]
       }
     },
-    "/auth/signUp": {
+    "/api/auth/signUp": {
       "post": {
         "operationId": "AuthController_signUp",
         "parameters": [],
@@ -3365,7 +3365,7 @@
         ]
       }
     },
-    "/auth/signIn": {
+    "/api/auth/signIn": {
       "post": {
         "operationId": "AuthController_signIn",
         "parameters": [],
@@ -3407,8 +3407,8 @@
     }
   },
   "info": {
-    "title": "rememeber-me",
-    "description": "API documentation for rememeber-me.env",
+    "title": "Auth Service",
+    "description": "This is the documentation of Auth Service API",
     "version": "1.0",
     "contact": {}
   },

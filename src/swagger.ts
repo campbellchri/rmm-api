@@ -22,5 +22,6 @@ export async function configureSwagger(
         fs.writeFileSync('./swagger-spec.json', JSON.stringify(document, null, 2));
     }
 
-    SwaggerModule.setup(`${basePath ? `${basePath}/` : ''}api`, app, document);
+    // Setup Swagger at /docs (will be /api/docs with global prefix)
+    SwaggerModule.setup('docs', app, document);
 }

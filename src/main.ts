@@ -15,6 +15,11 @@ async function bootstrap() {
   const port = configService.get<number>('port') ?? 4000;
   const basePath = configService.get<string>('basePath', '');
 
+  // Set global prefix if basePath is configured
+  if (basePath) {
+    app.setGlobalPrefix(basePath);
+  }
+
   // Logger
   app.useLogger(app.get(Logger));
 
