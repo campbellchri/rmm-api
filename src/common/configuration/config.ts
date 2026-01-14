@@ -19,7 +19,7 @@ export default () => ({
         client_x509_cert_url: process.env.FIREBASE_CLIENT_X509_CERT_URL,
     },
     // googleMaps: {
-    //     apiKey: process.env.GOOGLE_MAPS_API_KEY || 'AIzaSyCV49m1bUVDAP6Sz8Q4dvvQlUCrw0GJHqY',
+    //     apiKey: process.env.GOOGLE_MAPS_API_KEY,
     // },
     jwt: {
         secret:

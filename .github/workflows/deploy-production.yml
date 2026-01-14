@@ -1,0 +1,35 @@
+name: Deploy API to Production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  GCP_REGION: us-central1
+  SERVICE_NAME: rmm-api-production
+  REPOSITORY: rmm-docker
+  IMAGE_NAME: rmm-api
+  CLOUD_SQL_INSTANCE: remember-me-memorials-llc:us-central1:rmm-postgres-production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Production Deployment Notice
+        run: |
+          echo "⚠️ Production deployment is not yet configured"
+          echo "This workflow will be activated once production infrastructure is ready"
+          echo ""
+          echo "Required setup:"
+          echo "1. Create production Cloud SQL instance"
+          echo "2. Create production Cloud Run service"
+          echo "3. Configure production secrets in GitHub"
+          echo "4. Set up production Firebase project (if needed)"
+          echo "5. Update DNS records for production API domain"
+          exit 0  # Exit successfully to avoid workflow failure
