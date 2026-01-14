@@ -57,9 +57,9 @@ COPY --from=builder --chown=nestjs:nodejs /app/package.json ./package.json
 RUN mkdir -p uploads logs && \
     chown -R nestjs:nodejs uploads logs
 
-# Health check endpoint
+# Health check endpoint - use PORT env var or default to 8080
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-    CMD node -e "require('http').get('http://localhost:8080/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1); });"
+    CMD node -e "const port = process.env.PORT || 8080; require('http').get('http://localhost:' + port + '/api', (res) => { process.exit(res.statusCode === 200 ? 0 : 1); }).on('error', () => process.exit(1));"
 
 # Switch to non-root user
 USER nestjs

@@ -39,5 +39,8 @@ async function bootstrap() {
 
   await app.listen(port, '0.0.0.0');
   console.log(`Application is running on port ${port}`);
+  console.log(`Environment: NODE_ENV=${process.env.NODE_ENV}`);
+  console.log(`Base path: ${basePath || '/'}`);
+  console.log(`Swagger enabled: ${configService.get<boolean>('swagger.enable', true)}`);
 }
 bootstrap();
