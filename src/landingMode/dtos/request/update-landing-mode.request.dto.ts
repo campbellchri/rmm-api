@@ -1,0 +1,29 @@
+import { ApiPropertyOptional } from '@nestjs/swagger';
+import { IsBoolean, IsOptional, IsString } from 'class-validator';
+
+export class UpdateLandingModeRequestDto {
+    @IsOptional()
+    @IsString()
+    @ApiPropertyOptional({ description: 'Title of the landing mode' })
+    title?: string;
+
+    @IsOptional()
+    @IsString()
+    @ApiPropertyOptional({ description: 'Description of the landing mode' })
+    description?: string;
+
+    @IsOptional()
+    @IsString()
+    @ApiPropertyOptional({ description: 'Icon file ID reference' })
+    iconId?: string;
+
+    @IsOptional()
+    @IsString()
+    @ApiPropertyOptional({ description: 'Icon URL for display' })
+    iconURL?: string;
+
+    @IsOptional()
+    @IsBoolean()
+    @ApiPropertyOptional({ description: 'Status of landing mode (active/inactive)' })
+    isActive?: boolean;
+}

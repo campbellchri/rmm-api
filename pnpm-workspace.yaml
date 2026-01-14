@@ -1,0 +1,7 @@
+ignoredBuiltDependencies:
+  - '@firebase/util'
+  - '@nestjs/core'
+  - '@scarf/scarf'
+  - bcrypt
+  - nestjs-pino
+  - protobufjs

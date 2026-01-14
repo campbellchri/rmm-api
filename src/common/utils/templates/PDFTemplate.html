@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkmate IV RX Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            padding: 0px;
+            color: #333;
+        }
+
+        .header-date {
+            text-align: right;
+            padding-right: 32px;
+            color: #333333;
+            font-size: 16px;
+        }
+
+        .header-section {
+            background-color: #E9EBF8;
+            padding: 32px 0px;
+
+        }
+
+        .main-heading {
+            text-align: left;
+            padding-left: 32px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #040A26;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: separate;
+            border-spacing: 15px;
+        }
+
+        th,
+        td {
+            border: 1px solid transparent;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: transparent;
+        }
+
+        .iv-order {
+            border: none;
+        }
+
+        .iv-order-container {
+            white-space: normal;
+            max-width: 350px;
+        }
+
+        .iv-item {
+            text-align: center;
+            border: none;
+            padding: 5px 10px;
+            margin: 0px 10px 10px 0;
+            background-color: #E0E6F2;
+            border-radius: 5px;
+            display: inline-block;
+            max-width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .note-list ul {
+            padding: 0px;
+        }
+
+        .note-list ul li {
+            color: #838488;
+            list-style: none;
+        }
+
+        .infusion-item {
+            text-align: left;
+            margin: 0;
+            width: max-content;
+            padding: 5px 10px;
+            background-color: #E0E6F2;
+            border-radius: 5px;
+        }
+
+        .dosing-guide {
+            width: 370px;
+            font-size: 30px;
+        }
+
+        .signature-image {
+            max-width: 390px;
+            height: 113px;
+            object-fit: cover;
+        }
+
+        @media screen and (max-width: 480px) {
+            table {
+                border-spacing: 0px;
+            }
+
+            .header-date {
+                font-size: 12px;
+                padding-right: 8px;
+            }
+
+            .header-section {
+                padding: 8px 0;
+            }
+
+            .main-heading {
+                padding-left: 8px;
+                font-size: 18px;
+            }
+
+            th,
+            td {
+                font-size: 12px;
+                padding: 6px;
+            }
+
+            .iv-item {
+                font-size: 12px;
+                padding: 3px 6px;
+            }
+
+            .signature-image {
+                max-width: 200px;
+                height: auto;
+            }
+
+            .dosing-guide {
+                width: 100%;
+                font-size: 22px;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-section">
+        <p class="header-date">Monday, July 15, 2024</p>
+        <h1 class="main-heading">Checkmate IV RX Order</h1>
+    </div>
+
+    <table>
+        <tr>
+            <th><b>Patient Name</b></th>
+            <td>
+
+                <%= appointment.patient.firstName + ' ' + appointment.patient.lastName %>
+
+            </td>
+        </tr>
+        <tr>
+            <th><b>Patient DOB</b></th>
+            <td>{{appointment.patient.birthdate}}</td>
+        </tr>
+        <tr>
+            <th><b>Date of Appointment</b></th>
+            <td>{{appointment.startTime}}</td>
+        </tr>
+        <tr>
+            <th><b>Patient Address</b></th>
+            <td>{{appointment.patient.address}}</td>
+        </tr>
+
+        <tr>
+            <th>IV Order</th>
+            <td colspan="4" class="iv-order-container">
+                <div class="iv-item">BIOTIN</div>
+                <div class="iv-item">GLUTATHIONE (IV PUSH)</div>
+                <div class="iv-item">MAGNESIUM</div>
+                <div class="iv-item">MULTI-AMINO ACID-6</div>
+                <div class="iv-item">MYERS COCKTAIL</div>
+                <div class="iv-item">ZINC/LYSINE</div>
+            </td>
+        </tr>
+        </tr>
+    </table>
+
+    <table class="notes">
+        <tr>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td class="note-list">
+                <ul>
+                    <li>500 or 1000 cc LR (patient preference)</li>
+                    <li>10 mL Myers</li>
+                    <li>5 mL MAA</li>
+                    <li>400 mg Magnesium Chloride</li>
+                    <li>100 mg Zinc/5 mg Lysine</li>
+                    <li>10 mg Biotin</li>
+                    <li>1000 mg Glutathione</li>
+                    <li>PRN Pepcid, PRN Zofran, Toradol PRN</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th style="width: 370px;">Infusion Flow Time:</th>
+            <td class="infusion-container">
+                <div class="infusion-item">Line Fully Open</div>
+            </td>
+        </tr>
+        <tr>
+            <th style="width: 370px;">IV Fluids:</th>
+            <td class="infusion-container">
+                <div class="infusion-item">1000mL Lactated Ringers</div>
+            </td>
+        </tr>
+        <tr>
+            <th style="width: 370px;">Provider Name:</th>
+            <td>
+                Eleonora Walczak
+            </td>
+        </tr>
+        <tr>
+            <th style="width: 370px;">Provider Signature:</th>
+            <td>
+                <img src="data:image/jpeg;base64,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"
+                    alt="Signature" class="signature-image" />
+            </td>
+        </tr>
+        <tr>
+            <th class="dosing-guide">Dosing Guide Line</th>
+        </tr>
+        <tr>
+            <th style="width: 370px; font-size: 16px;">Please download the provider protocol to your device if needed.
+            </th>
+            <td>
+                <a href="Cheatsheets_for_providers.pdf">Cheatsheets for providers.pdf</a>
+            </td>
+        </tr>
+
+    </table>
+
+
+</body>
+
+</html>

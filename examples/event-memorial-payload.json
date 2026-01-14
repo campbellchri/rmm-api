@@ -1,0 +1,28 @@
+{
+  "description": "Celebrating John's birthday",
+  "landingModeId": "event-mode-landing-id",
+  "templateId": "event-mode-template-id",
+  "personName": "John Doe",
+  "personGender": "male",
+  "profilePictureId": "profile-photo-id",
+  "personProfilePicture": "https://cdn.example.com/photos/john.jpg",
+  "favQuote": "In loving memory of a life well lived.",
+  "eventStart": "2025-08-19T16:02:00Z",
+  "eventDuration": "48h",
+  "autoRevertToFullMode": true,
+  "publishStatus": "draft",
+  "userMedia": [
+    {
+      "mimeType": "video/mp4",
+      "fileURL": "https://cdn.example.com/uploads/event-video.mp4",
+      "fileId": "uuid-of-event-video",
+      "type": "video",
+      "category": "gallery",
+      "videoTitle": "John's Birthday Celebration Video",
+      "videoDescription": "A special video for John's birthday celebration",
+      "isMainVideo": true,
+      "isActive": true,
+      "sortOrder": 0
+    }
+  ]
+}

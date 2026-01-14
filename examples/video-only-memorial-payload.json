@@ -1,0 +1,39 @@
+{
+  "description": "A tribute to John Doe",
+  "landingModeId": "video-only-mode-landing-id",
+  "templateId": "video-only-template-id",
+  "personName": "John Doe",
+  "personGender": "male",
+  "personBirthDate": "1950-05-10",
+  "personDeathDate": "2024-07-15",
+  "profilePictureId": "profile-photo-id",
+  "personProfilePicture": "https://cdn.example.com/photos/john.jpg",
+  "favQuote": "To live in hearts we leave behind is not to die.",
+  "publishStatus": "draft",
+  "userMedia": [
+    {
+      "mimeType": "video/mp4",
+      "fileURL": "https://cdn.example.com/uploads/featured-video.mp4",
+      "fileId": "uuid-of-featured-video",
+      "type": "video",
+      "category": "featured",
+      "videoTitle": "John's Memorial Tribute Video",
+      "videoDescription": "A beautiful tribute video celebrating John's life",
+      "isMainVideo": true,
+      "isActive": true,
+      "sortOrder": 0
+    },
+    {
+      "mimeType": "video/mp4",
+      "fileURL": "https://cdn.example.com/uploads/video2.mp4",
+      "fileId": "uuid-of-video-2",
+      "type": "video",
+      "category": "gallery",
+      "videoTitle": "John's 70th Birthday Celebration",
+      "videoDescription": "Celebration video from John's 70th birthday",
+      "isMainVideo": false,
+      "isActive": true,
+      "sortOrder": 1
+    }
+  ]
+}

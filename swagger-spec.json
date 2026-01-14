@@ -1,0 +1,5990 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/users": {
+      "post": {
+        "operationId": "UsersController_createUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/update/profile": {
+      "patch": {
+        "operationId": "UsersController_updateUserProfile",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/currentUser": {
+      "get": {
+        "operationId": "UsersController_getCurrentUser",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/resetUserPassword": {
+      "patch": {
+        "operationId": "UsersController_resetUserPassword",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdatePasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/landing-mode": {
+      "post": {
+        "operationId": "LandingModeController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLandingModeRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLandingModeResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "LandingMode"
+        ]
+      },
+      "get": {
+        "operationId": "LandingModeController_readAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadLandingModeResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "LandingMode"
+        ]
+      }
+    },
+    "/landing-mode/readById/{id}": {
+      "get": {
+        "operationId": "LandingModeController_readById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "LandingMode"
+        ]
+      }
+    },
+    "/landing-mode/{id}": {
+      "patch": {
+        "operationId": "LandingModeController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLandingModeRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLandingModeResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "LandingMode"
+        ]
+      },
+      "delete": {
+        "operationId": "LandingModeController_delete",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLandingModeResponseDto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "LandingMode"
+        ]
+      }
+    },
+    "/templates": {
+      "post": {
+        "operationId": "TemplateController_createTemplate",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTemplateRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Template"
+        ]
+      },
+      "get": {
+        "operationId": "TemplateController_getAllTemplates",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/templates/{id}": {
+      "patch": {
+        "operationId": "TemplateController_updateTemplate",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTemplateRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Template"
+        ]
+      },
+      "delete": {
+        "operationId": "TemplateController_deleteTemplate",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/templates/readById/{id}": {
+      "get": {
+        "operationId": "TemplateController_getTemplateById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/templates/landing-mode/{landingModeId}": {
+      "get": {
+        "operationId": "TemplateController_getTemplatesByLandingModeId",
+        "parameters": [
+          {
+            "name": "landingModeId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Template"
+        ]
+      }
+    },
+    "/memorials": {
+      "post": {
+        "operationId": "MemorialController_createMemorial",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMemorialRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateMemorialResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Memorial"
+        ]
+      },
+      "get": {
+        "operationId": "MemorialController_getAllMemorials",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadMemorialResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Memorial"
+        ]
+      }
+    },
+    "/memorials/{id}": {
+      "patch": {
+        "operationId": "MemorialController_updateMemorial",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMemorialRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateMemorialResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Memorial"
+        ]
+      },
+      "delete": {
+        "operationId": "MemorialController_deleteMemorial",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadMemorialResponseDto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Memorial"
+        ]
+      }
+    },
+    "/memorials/readById/{id}": {
+      "get": {
+        "operationId": "MemorialController_getMemorialById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadMemorialResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Memorial"
+        ]
+      }
+    },
+    "/memorials/creator/{creatorId}/{memorialId}": {
+      "get": {
+        "operationId": "MemorialController_getMemorialsByCreatorIdAndMode",
+        "parameters": [
+          {
+            "name": "creatorId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "memorialId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mode",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Memorial"
+        ]
+      }
+    },
+    "/user-media": {
+      "post": {
+        "operationId": "UserMediaController_createMedia",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserMediaRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserMediaResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserMedia"
+        ]
+      },
+      "get": {
+        "operationId": "UserMediaController_getAllMedia",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserMediaResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserMedia"
+        ]
+      }
+    },
+    "/user-media/{id}": {
+      "patch": {
+        "operationId": "UserMediaController_updateMedia",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserMediaRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserMediaResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserMedia"
+        ]
+      },
+      "delete": {
+        "operationId": "UserMediaController_deleteMedia",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserMediaResponseDto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserMedia"
+        ]
+      }
+    },
+    "/user-media/readById/{id}": {
+      "get": {
+        "operationId": "UserMediaController_getMediaById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserMediaResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserMedia"
+        ]
+      }
+    },
+    "/user-media/memorial/{memorialId}": {
+      "get": {
+        "operationId": "UserMediaController_getMediaByMemorialId",
+        "parameters": [
+          {
+            "name": "memorialId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserMediaResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserMedia"
+        ]
+      }
+    },
+    "/user-media/user/{userId}": {
+      "get": {
+        "operationId": "UserMediaController_getMediaByUserId",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserMediaResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserMedia"
+        ]
+      }
+    },
+    "/user-tributes": {
+      "post": {
+        "operationId": "UserTributeController_createTribute",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserTributeRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserTributeRequestDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserTribute"
+        ]
+      },
+      "get": {
+        "operationId": "UserTributeController_getAllTributes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserTributeResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserTribute"
+        ]
+      }
+    },
+    "/user-tributes/{id}": {
+      "patch": {
+        "operationId": "UserTributeController_updateTribute",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserTributeRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserTributesResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserTribute"
+        ]
+      },
+      "delete": {
+        "operationId": "UserTributeController_deleteTribute",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserTributeResponseDto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserTribute"
+        ]
+      }
+    },
+    "/user-tributes/readById/{id}": {
+      "get": {
+        "operationId": "UserTributeController_getTributeById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserTributeResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserTribute"
+        ]
+      }
+    },
+    "/user-tributes/memorial/{memorialId}": {
+      "get": {
+        "operationId": "UserTributeController_getTributesByMemorialId",
+        "parameters": [
+          {
+            "name": "memorialId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserTributeResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserTribute"
+        ]
+      }
+    },
+    "/user-tributes/user/{userId}": {
+      "get": {
+        "operationId": "UserTributeController_getTributesByUserId",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserTributeResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserTribute"
+        ]
+      }
+    },
+    "/memorial-qr-codes": {
+      "post": {
+        "operationId": "MemorialQRCodeController_createQRCode",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMemorialQRCodeRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateMemorialQRCodeResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "MemorialQRCode"
+        ]
+      }
+    },
+    "/memorial-qr-codes/readById/{id}": {
+      "get": {
+        "operationId": "MemorialQRCodeController_getQRCodeById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadMemorialQRCodeResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "MemorialQRCode"
+        ]
+      }
+    },
+    "/memorial-qr-codes/memorial/{memorialId}": {
+      "get": {
+        "operationId": "MemorialQRCodeController_getQRCodeByMemorialId",
+        "parameters": [
+          {
+            "name": "memorialId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadMemorialQRCodeResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "MemorialQRCode"
+        ]
+      }
+    },
+    "/memorial-qr-codes/{id}": {
+      "patch": {
+        "operationId": "MemorialQRCodeController_updateQRCode",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMemorialQRCodeRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateMemorialQRCodeResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "MemorialQRCode"
+        ]
+      },
+      "delete": {
+        "operationId": "MemorialQRCodeController_deleteQRCode",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadMemorialQRCodeResponseDto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "MemorialQRCode"
+        ]
+      }
+    },
+    "/user-featured-memorials": {
+      "post": {
+        "operationId": "UserFeaturedMemorialController_featureMemorial",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeatureMemorialRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureMemorialResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Feature a memorial",
+        "tags": [
+          "UserFeaturedMemorial"
+        ]
+      }
+    },
+    "/user-featured-memorials/{memorialId}": {
+      "delete": {
+        "operationId": "UserFeaturedMemorialController_unfeatureMemorial",
+        "parameters": [
+          {
+            "name": "memorialId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Memorial unfeatured successfully"
+          },
+          "204": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Unfeature a memorial",
+        "tags": [
+          "UserFeaturedMemorial"
+        ]
+      }
+    },
+    "/user-featured-memorials/user/{userId}": {
+      "get": {
+        "operationId": "UserFeaturedMemorialController_getFeaturedMemorialsByUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReadUserFeaturedMemorialResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Get all featured memorials for a user",
+        "tags": [
+          "UserFeaturedMemorial"
+        ]
+      }
+    },
+    "/user-featured-memorials/my-featured": {
+      "get": {
+        "operationId": "UserFeaturedMemorialController_getMyFeaturedMemorials",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReadUserFeaturedMemorialResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Get all featured memorials for the current authenticated user",
+        "tags": [
+          "UserFeaturedMemorial"
+        ]
+      }
+    },
+    "/user-featured-memorials/check/{memorialId}": {
+      "get": {
+        "operationId": "UserFeaturedMemorialController_checkIfFeatured",
+        "parameters": [
+          {
+            "name": "memorialId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "isFeatured": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Check if a memorial is featured by the current user",
+        "tags": [
+          "UserFeaturedMemorial"
+        ]
+      }
+    },
+    "/user-featured-memorials/readById/{id}": {
+      "get": {
+        "operationId": "UserFeaturedMemorialController_getFeaturedMemorialById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserFeaturedMemorialResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Get a featured memorial by ID",
+        "tags": [
+          "UserFeaturedMemorial"
+        ]
+      }
+    },
+    "/contact-us/create": {
+      "post": {
+        "operationId": "ContactUsController_createContactUs",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactUsRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContactUsResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ContactUs"
+        ]
+      }
+    },
+    "/contact-us/get": {
+      "get": {
+        "operationId": "ContactUsController_getContactUs",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadContactUsResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ContactUs"
+        ]
+      }
+    },
+    "/contact-us/update": {
+      "patch": {
+        "operationId": "ContactUsController_updateContactUs",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateContactUsRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateContactUsResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ContactUs"
+        ]
+      }
+    },
+    "/contact-us/upsert": {
+      "post": {
+        "operationId": "ContactUsController_upsertContactUs",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactUsRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContactUsResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ContactUs"
+        ]
+      }
+    },
+    "/complaints": {
+      "post": {
+        "operationId": "ComplaintController_createComplaint",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateComplaintRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateComplaintResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Submit a complaint, suggestion, or message",
+        "tags": [
+          "Complaint"
+        ]
+      },
+      "get": {
+        "operationId": "ComplaintController_getAllComplaints",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReadComplaintResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Get all complaints (Admin)",
+        "tags": [
+          "Complaint"
+        ]
+      }
+    },
+    "/complaints/readById/{id}": {
+      "get": {
+        "operationId": "ComplaintController_getComplaintById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadComplaintResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Get a complaint by ID",
+        "tags": [
+          "Complaint"
+        ]
+      }
+    },
+    "/complaints/my-complaints": {
+      "get": {
+        "operationId": "ComplaintController_getMyComplaints",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReadComplaintResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Get all complaints submitted by the current authenticated user",
+        "tags": [
+          "Complaint"
+        ]
+      }
+    },
+    "/legal-documents": {
+      "post": {
+        "operationId": "LegalDocumentController_createLegalDocument",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLegalDocumentRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLegalDocumentResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Create a legal document (Privacy Policy or Terms and Conditions)",
+        "tags": [
+          "LegalDocument"
+        ]
+      },
+      "get": {
+        "operationId": "LegalDocumentController_getAllLegalDocuments",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReadLegalDocumentResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Get all legal documents",
+        "tags": [
+          "LegalDocument"
+        ]
+      }
+    },
+    "/legal-documents/readById/{id}": {
+      "get": {
+        "operationId": "LegalDocumentController_getLegalDocumentById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadLegalDocumentResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Get a legal document by ID",
+        "tags": [
+          "LegalDocument"
+        ]
+      }
+    },
+    "/legal-documents/type/{type}": {
+      "get": {
+        "operationId": "LegalDocumentController_getLegalDocumentByType",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadLegalDocumentResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Get a legal document by type (privacy_policy or terms_and_conditions)",
+        "tags": [
+          "LegalDocument"
+        ]
+      }
+    },
+    "/legal-documents/{id}": {
+      "patch": {
+        "operationId": "LegalDocumentController_updateLegalDocument",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLegalDocumentRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateLegalDocumentResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Update a legal document",
+        "tags": [
+          "LegalDocument"
+        ]
+      }
+    },
+    "/legal-documents/upsert/{type}": {
+      "post": {
+        "operationId": "LegalDocumentController_upsertLegalDocument",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLegalDocumentRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLegalDocumentResponseDto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLegalDocumentResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "summary": "Update or create a legal document by type (creates if not exists, updates if exists)",
+        "tags": [
+          "LegalDocument"
+        ]
+      }
+    },
+    "/subscription-packages": {
+      "post": {
+        "operationId": "SubscriptionPackageController_createSubscriptionPackage",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSubscriptionPackageRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSubscriptionPackageResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionPackage"
+        ]
+      }
+    },
+    "/subscription-packages/readById/{id}": {
+      "get": {
+        "operationId": "SubscriptionPackageController_getSubscriptionPackageById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadSubscriptionPackageResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionPackage"
+        ]
+      }
+    },
+    "/subscription-packages/getAll": {
+      "get": {
+        "operationId": "SubscriptionPackageController_getAllSubscriptionPackages",
+        "parameters": [
+          {
+            "name": "includeInactive",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadSubscriptionPackageResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionPackage"
+        ]
+      }
+    },
+    "/subscription-packages/{id}": {
+      "patch": {
+        "operationId": "SubscriptionPackageController_updateSubscriptionPackage",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSubscriptionPackageRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateSubscriptionPackageResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionPackage"
+        ]
+      },
+      "delete": {
+        "operationId": "SubscriptionPackageController_deleteSubscriptionPackage",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateSubscriptionPackageResponseDto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionPackage"
+        ]
+      }
+    },
+    "/userNotificationSettings": {
+      "post": {
+        "operationId": "UserNotificationSettingsController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserNotificationSettingRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserNotificationSettingResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserNotificationSettings"
+        ]
+      }
+    },
+    "/userNotificationSettings/readById/{id}": {
+      "get": {
+        "operationId": "UserNotificationSettingsController_readById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserNotificationSettingResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserNotificationSettings"
+        ]
+      }
+    },
+    "/userNotificationSettings/user/{userId}": {
+      "get": {
+        "operationId": "UserNotificationSettingsController_getByUserId",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserNotificationSettingResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserNotificationSettings"
+        ]
+      }
+    },
+    "/userNotificationSettings/update/{id}": {
+      "patch": {
+        "operationId": "UserNotificationSettingsController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserNotificationSettingsRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserNotificationSettingResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserNotificationSettings"
+        ]
+      }
+    },
+    "/user-answers": {
+      "post": {
+        "operationId": "UserAnswersController_createAnswer",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserAnswerRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserAnswersResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserAnswers"
+        ]
+      },
+      "get": {
+        "operationId": "UserAnswersController_getAllAnswers",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserAnswerResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserAnswers"
+        ]
+      }
+    },
+    "/user-answers/{id}": {
+      "patch": {
+        "operationId": "UserAnswersController_updateAnswer",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserAnswerRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserAnswersResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserAnswers"
+        ]
+      },
+      "delete": {
+        "operationId": "UserAnswersController_deleteAnswer",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserAnswersResponseDto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserAnswers"
+        ]
+      }
+    },
+    "/user-answers/readById/{id}": {
+      "get": {
+        "operationId": "UserAnswersController_getAnswerById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserAnswerResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserAnswers"
+        ]
+      }
+    },
+    "/user-questionnaires": {
+      "post": {
+        "operationId": "UserQuestionnaireController_createQuestionnaire",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserQuestionnaireRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserQuestionnaireResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserQuestionnaire"
+        ]
+      },
+      "get": {
+        "operationId": "UserQuestionnaireController_getAllQuestionnaires",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserQuestionnaireResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserQuestionnaire"
+        ]
+      }
+    },
+    "/user-questionnaires/{id}": {
+      "patch": {
+        "operationId": "UserQuestionnaireController_updateQuestionnaire",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserQuestionnaireRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserQuestionnaireResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserQuestionnaire"
+        ]
+      },
+      "delete": {
+        "operationId": "UserQuestionnaireController_deleteQuestionnaire",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserQuestionnaireResponseDto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserQuestionnaire"
+        ]
+      }
+    },
+    "/user-questionnaires/readById/{id}": {
+      "get": {
+        "operationId": "UserQuestionnaireController_getQuestionnaireById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserQuestionnaireResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserQuestionnaire"
+        ]
+      }
+    },
+    "/user-questionnaire-answers": {
+      "post": {
+        "operationId": "UserQuestionnaireAnswersController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserQuestionnaireAnswerRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserQuestionnaireAnswersResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserQuestionnaireAnswers"
+        ]
+      },
+      "get": {
+        "operationId": "UserQuestionnaireAnswersController_getAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserQuestionnaireAnswerResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserQuestionnaireAnswers"
+        ]
+      }
+    },
+    "/user-questionnaire-answers/{id}": {
+      "patch": {
+        "operationId": "UserQuestionnaireAnswersController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserQuestionnaireAnswerRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserQuestionnaireAnswersResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserQuestionnaireAnswers"
+        ]
+      },
+      "get": {
+        "operationId": "UserQuestionnaireAnswersController_getById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserQuestionnaireAnswerResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserQuestionnaireAnswers"
+        ]
+      },
+      "delete": {
+        "operationId": "UserQuestionnaireAnswersController_delete",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadUserQuestionnaireAnswerResponseDto"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserQuestionnaireAnswers"
+        ]
+      }
+    },
+    "/auth/signUp": {
+      "post": {
+        "operationId": "AuthController_signUp",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignUpRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignUpResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "409": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/auth/signIn": {
+      "post": {
+        "operationId": "AuthController_signIn",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignInRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignInResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "rememeber-me",
+    "description": "API documentation for rememeber-me.env",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreateUserRequestDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "phone": {
+            "type": "string"
+          },
+          "callingCode": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "photoId": {
+            "type": "string"
+          },
+          "photoURL": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "street1": {
+            "type": "string"
+          },
+          "street2": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "postal": {
+            "type": "string"
+          }
+        }
+      },
+      "UserRoles": {
+        "type": "string",
+        "enum": [
+          "admin",
+          "superAdmin",
+          "user"
+        ]
+      },
+      "UserResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "callingCode": {
+            "type": "string"
+          },
+          "defaultRole": {
+            "type": "string"
+          },
+          "street1": {
+            "type": "string"
+          },
+          "street2": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "postal": {
+            "type": "string"
+          },
+          "photoId": {
+            "type": "string"
+          },
+          "photoURL": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRoles"
+            }
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "firstName",
+          "lastName",
+          "roles",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "UpdateUserRequestDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "admin",
+                "superAdmin",
+                "user"
+              ]
+            }
+          },
+          "phone": {
+            "type": "string"
+          },
+          "callingCode": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "photoId": {
+            "type": "string"
+          },
+          "photoURL": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "street1": {
+            "type": "string"
+          },
+          "street2": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "postal": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateUserResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "UserUpdatePasswordRequestDto": {
+        "type": "object",
+        "properties": {
+          "currentPassword": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          },
+          "confirmNewPassword": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "currentPassword",
+          "newPassword",
+          "confirmNewPassword"
+        ]
+      },
+      "CreateLandingModeRequestDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title of the landing mode"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the landing mode"
+          },
+          "iconId": {
+            "type": "string",
+            "description": "Icon file ID reference"
+          },
+          "landingModeType": {
+            "type": "string",
+            "description": "Type of the landing mode",
+            "enum": [
+              "full-mode",
+              "event-mode",
+              "video-only-mode"
+            ],
+            "example": "full-mode"
+          },
+          "iconURL": {
+            "type": "string",
+            "description": "Icon URL for display"
+          },
+          "isActive": {
+            "type": "boolean",
+            "description": "Status of landing mode (active/inactive)"
+          }
+        }
+      },
+      "CreateLandingModeResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "ReadLandingModeResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-landing-mode"
+          },
+          "title": {
+            "type": "string",
+            "example": "Dark Mode"
+          },
+          "description": {
+            "type": "string",
+            "example": "Landing mode for dark theme"
+          },
+          "landingModeType": {
+            "type": "string",
+            "example": "full-mode",
+            "enum": [
+              "full-mode",
+              "event-mode",
+              "video-only-mode"
+            ]
+          },
+          "iconId": {
+            "type": "string",
+            "example": "icon-file-id"
+          },
+          "iconURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/icons/darkmode.png"
+          },
+          "isActive": {
+            "type": "boolean",
+            "example": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "landingModeType",
+          "isActive",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "UpdateLandingModeRequestDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title of the landing mode"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the landing mode"
+          },
+          "iconId": {
+            "type": "string",
+            "description": "Icon file ID reference"
+          },
+          "iconURL": {
+            "type": "string",
+            "description": "Icon URL for display"
+          },
+          "isActive": {
+            "type": "boolean",
+            "description": "Status of landing mode (active/inactive)"
+          }
+        }
+      },
+      "CreateTemplateRequestDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "landingModeId": {
+            "type": "string"
+          },
+          "thumbnailURL": {
+            "type": "string"
+          },
+          "thumbnailId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "CreateTemplateResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "UpdateTemplateRequestDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "landingModeId": {
+            "type": "string"
+          },
+          "thumbnailURL": {
+            "type": "string"
+          },
+          "thumbnailId": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateTemplateResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "ReadTemplateResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-template"
+          },
+          "name": {
+            "type": "string",
+            "example": "Memorial Template A"
+          },
+          "description": {
+            "type": "string",
+            "example": "This template is used for modern memorials"
+          },
+          "landingModeId": {
+            "type": "string",
+            "example": "uuid-of-landing-mode"
+          },
+          "landingMode": {
+            "$ref": "#/components/schemas/ReadLandingModeResponseDto"
+          },
+          "thumbnailURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/templates/template-thumbnail.png"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CreateUserMediaRequestDto": {
+        "type": "object",
+        "properties": {
+          "mimeType": {
+            "type": "string"
+          },
+          "fileURL": {
+            "type": "string"
+          },
+          "fileId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "photo",
+              "video",
+              "document",
+              "audio"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "profile",
+              "featured",
+              "gallery",
+              "life_story_image"
+            ],
+            "description": "Category: profile, featured, gallery, life_story_image"
+          },
+          "memorialId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string",
+            "description": "Will be automatically set from authenticated user if not provided"
+          },
+          "photoCaption": {
+            "type": "string"
+          },
+          "photoDescription": {
+            "type": "string"
+          },
+          "videoTitle": {
+            "type": "string"
+          },
+          "videoDescription": {
+            "type": "string"
+          },
+          "isMainVideo": {
+            "type": "boolean",
+            "default": false
+          },
+          "isActive": {
+            "type": "boolean",
+            "default": true
+          },
+          "sortOrder": {
+            "type": "number",
+            "default": 0
+          }
+        },
+        "required": [
+          "mimeType",
+          "fileURL",
+          "type"
+        ]
+      },
+      "CreateUserTributeRequestDto": {
+        "type": "object",
+        "properties": {
+          "authorName": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "content": {
+            "type": "string",
+            "example": "You will always be remembered for your kindness and love."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "memory",
+              "tribute",
+              "condolence"
+            ]
+          },
+          "imageUrl": {
+            "type": "string",
+            "example": "https://cdn.example.com/images/tribute.png"
+          },
+          "imageId": {
+            "type": "string",
+            "example": "uuid-of-image"
+          },
+          "memorialId": {
+            "type": "string",
+            "example": "uuid-of-memorial"
+          },
+          "userId": {
+            "type": "string",
+            "example": "uuid-of-user"
+          }
+        },
+        "required": [
+          "authorName",
+          "content",
+          "type"
+        ]
+      },
+      "CreateMemorialSayingRequestDto": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string",
+            "example": "You will always be remembered for your kindness and love."
+          },
+          "authorName": {
+            "type": "string",
+            "example": "Jane Doe"
+          }
+        },
+        "required": [
+          "content"
+        ]
+      },
+      "CreateMemorialRequestDto": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "example": "Celebrating the life of John Doe"
+          },
+          "favSaying": {
+            "type": "string",
+            "example": "“To live in hearts we leave behind is not to die.”"
+          },
+          "creatorId": {
+            "type": "string",
+            "example": "uuid-of-user",
+            "description": "Will be automatically set from authenticated user if not provided"
+          },
+          "landingModeId": {
+            "type": "string",
+            "example": "uuid-of-landing-mode"
+          },
+          "templateId": {
+            "type": "string",
+            "example": "uuid-of-template"
+          },
+          "personName": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "personGender": {
+            "type": "string",
+            "example": "male",
+            "enum": [
+              "male",
+              "female",
+              "other",
+              "prefer_not_to_say"
+            ],
+            "description": "Gender of the deceased"
+          },
+          "personBirthDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "1950-05-10",
+            "description": "Birthdate (ISO format)"
+          },
+          "personDeathDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2024-07-15",
+            "description": "Death date (ISO format)"
+          },
+          "profilePictureId": {
+            "type": "string",
+            "example": "uuid-of-profile-picture"
+          },
+          "personProfilePicture": {
+            "type": "string",
+            "example": "https://cdn.example.com/photos/john.jpg"
+          },
+          "favQuote": {
+            "type": "string",
+            "example": "“To live in hearts we leave behind is not to die.”"
+          },
+          "featuredPhotoId": {
+            "type": "string",
+            "example": "uuid-of-featured-photo"
+          },
+          "featuredPhotoURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/photos/featured.jpg"
+          },
+          "lifeStoryText": {
+            "type": "string",
+            "example": "John was a wonderful father and friend..."
+          },
+          "lifeStoryImageId": {
+            "type": "string",
+            "example": "uuid-of-life-story-image"
+          },
+          "lifeStoryImageURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/photos/life-story.jpg"
+          },
+          "publishStatus": {
+            "type": "string",
+            "example": "draft",
+            "enum": [
+              "draft",
+              "standard",
+              "private",
+              "archived"
+            ],
+            "default": "draft"
+          },
+          "pageURL": {
+            "type": "string",
+            "example": "https://rememberme.com/memorial/john-doe"
+          },
+          "qrCodeData": {
+            "type": "string",
+            "example": "https://rememberme.com/memorial/john-doe",
+            "description": "QR code data (usually the page URL). QR code will be created automatically if provided."
+          },
+          "eventStart": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-09-01T18:00:00Z"
+          },
+          "eventDuration": {
+            "type": "string",
+            "example": "48h",
+            "description": "Duration in hours/days"
+          },
+          "autoRevertToFullMode": {
+            "type": "boolean",
+            "example": true
+          },
+          "userMedia": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateUserMediaRequestDto"
+            }
+          },
+          "userTributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateUserTributeRequestDto"
+            }
+          },
+          "favoriteSayings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateMemorialSayingRequestDto"
+            }
+          }
+        },
+        "required": [
+          "landingModeId",
+          "templateId"
+        ]
+      },
+      "CreateMemorialResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "UpdateUserMediaRequestDto": {
+        "type": "object",
+        "properties": {
+          "mimeType": {
+            "type": "string"
+          },
+          "fileURL": {
+            "type": "string"
+          },
+          "fileId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "photo",
+              "video",
+              "document",
+              "audio"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "profile",
+              "featured",
+              "gallery",
+              "life_story_image"
+            ],
+            "description": "Category: profile, featured, gallery, life_story_image"
+          },
+          "memorialId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string",
+            "description": "Will be automatically set from authenticated user if not provided"
+          },
+          "photoCaption": {
+            "type": "string"
+          },
+          "photoDescription": {
+            "type": "string"
+          },
+          "videoTitle": {
+            "type": "string"
+          },
+          "videoDescription": {
+            "type": "string"
+          },
+          "isMainVideo": {
+            "type": "boolean",
+            "default": false
+          },
+          "isActive": {
+            "type": "boolean",
+            "default": true
+          },
+          "sortOrder": {
+            "type": "number",
+            "default": 0
+          },
+          "id": {
+            "type": "string",
+            "example": "7630c9f7-b8eb-4857-8af0-5344bf79afc6"
+          }
+        }
+      },
+      "UpdateUserTributeRequestDto": {
+        "type": "object",
+        "properties": {
+          "authorName": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "content": {
+            "type": "string",
+            "example": "You will always be remembered for your kindness and love."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "memory",
+              "tribute",
+              "condolence"
+            ]
+          },
+          "imageUrl": {
+            "type": "string",
+            "example": "https://cdn.example.com/images/tribute.png"
+          },
+          "imageId": {
+            "type": "string",
+            "example": "uuid-of-image"
+          },
+          "memorialId": {
+            "type": "string",
+            "example": "uuid-of-memorial"
+          },
+          "userId": {
+            "type": "string",
+            "example": "uuid-of-user"
+          },
+          "id": {
+            "type": "string",
+            "example": "7630c9f7-b8eb-4857-8af0-5344bf79afc6"
+          }
+        }
+      },
+      "UpdateMemorialRequestDto": {
+        "type": "object",
+        "properties": {
+          "favSaying": {
+            "type": "string",
+            "example": "\"To live in hearts we leave behind is not to die.\""
+          },
+          "landingModeId": {
+            "type": "string",
+            "example": "uuid-of-landing-mode"
+          },
+          "templateId": {
+            "type": "string",
+            "example": "uuid-of-template"
+          },
+          "personName": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "personBirthDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "1950-05-10",
+            "description": "Birthdate (ISO format)"
+          },
+          "personDeathDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2024-07-15",
+            "description": "Death date (ISO format)"
+          },
+          "profilePictureId": {
+            "type": "string",
+            "example": "uuid-of-profile-picture"
+          },
+          "personProfilePicture": {
+            "type": "string",
+            "example": "https://cdn.example.com/photos/john.jpg"
+          },
+          "favQuote": {
+            "type": "string",
+            "example": "\"To live in hearts we leave behind is not to die.\""
+          },
+          "eventStart": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-09-01T18:00:00Z"
+          },
+          "eventDuration": {
+            "type": "string",
+            "example": "48h",
+            "description": "Duration in hours/days"
+          },
+          "autoRevertToFullMode": {
+            "type": "boolean",
+            "example": true
+          },
+          "userMedia": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateUserMediaRequestDto"
+            }
+          },
+          "userTributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateUserTributeRequestDto"
+            }
+          }
+        }
+      },
+      "UpdateMemorialResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "ReadUserMediaResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-media"
+          },
+          "mimeType": {
+            "type": "string",
+            "example": "image/png"
+          },
+          "fileURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/uploads/media-file.png"
+          },
+          "fileId": {
+            "type": "string",
+            "example": "uuid-of-file"
+          },
+          "type": {
+            "type": "string",
+            "example": "IMAGE",
+            "description": "Media type (e.g., IMAGE, VIDEO, AUDIO)"
+          },
+          "memorialId": {
+            "type": "string",
+            "example": "uuid-of-memorial"
+          },
+          "userId": {
+            "type": "string",
+            "example": "uuid-of-user"
+          },
+          "photoCaption": {
+            "type": "string",
+            "example": "Vacation Memories"
+          },
+          "photoDescription": {
+            "type": "string",
+            "example": "A beautiful sunset at the beach"
+          },
+          "videoTitle": {
+            "type": "string",
+            "example": "Grandma’s 80th Birthday Celebration"
+          },
+          "isMainVideo": {
+            "type": "boolean",
+            "example": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "example": true
+          },
+          "sortOrder": {
+            "type": "number",
+            "example": 1
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "mimeType",
+          "fileURL",
+          "type",
+          "memorialId",
+          "userId",
+          "isMainVideo",
+          "isActive",
+          "sortOrder",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "ReadUserTributeResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-tribute"
+          },
+          "authorName": {
+            "type": "string",
+            "example": "Jane Doe"
+          },
+          "content": {
+            "type": "string",
+            "example": "You will always be remembered for your kindness and love."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "memory",
+              "tribute",
+              "condolence"
+            ],
+            "example": "tribute"
+          },
+          "imageUrl": {
+            "type": "string",
+            "example": "https://example.com/image.jpg"
+          },
+          "imageId": {
+            "type": "string"
+          },
+          "memorialId": {
+            "type": "string",
+            "example": "uuid-of-memorial"
+          },
+          "userId": {
+            "type": "string",
+            "example": "uuid-of-user"
+          },
+          "status": {
+            "type": "string",
+            "example": "approved",
+            "description": "Moderation status"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "authorName",
+          "content",
+          "type",
+          "imageId",
+          "memorialId",
+          "status",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "ReadMemorialSayingResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-saying"
+          },
+          "content": {
+            "type": "string",
+            "example": "You will always be remembered for your kindness and love."
+          },
+          "authorName": {
+            "type": "string",
+            "example": "Jane Doe"
+          },
+          "memorialId": {
+            "type": "string",
+            "example": "uuid-of-memorial"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "content",
+          "memorialId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "ReadMemorialQRCodeResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-qr-code"
+          },
+          "memorialId": {
+            "type": "string",
+            "example": "uuid-of-memorial"
+          },
+          "qrCodeData": {
+            "type": "string",
+            "example": "https://rememberme.com/memorial/john-doe"
+          },
+          "qrCodeImageURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/qr-codes/qr-code.png"
+          },
+          "qrCodeImageId": {
+            "type": "string",
+            "example": "uuid-of-qr-code-image"
+          },
+          "description": {
+            "type": "string",
+            "example": "QR code for sharing memorial page"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "memorialId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "ReadMemorialResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-memorial"
+          },
+          "description": {
+            "type": "string",
+            "example": "Celebrating the life of John Doe"
+          },
+          "favSaying": {
+            "type": "string",
+            "example": "John was a wonderful father and friend."
+          },
+          "creatorId": {
+            "type": "string",
+            "example": "uuid-of-creator"
+          },
+          "landingModeId": {
+            "type": "string",
+            "example": "uuid-of-landing-mode"
+          },
+          "landingMode": {
+            "$ref": "#/components/schemas/ReadLandingModeResponseDto"
+          },
+          "templateId": {
+            "type": "string",
+            "example": "uuid-of-template"
+          },
+          "personName": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "personGender": {
+            "type": "string",
+            "example": "male",
+            "enum": [
+              "male",
+              "female",
+              "other",
+              "prefer_not_to_say"
+            ]
+          },
+          "personBirthDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "1950-01-01T00:00:00Z"
+          },
+          "personDeathDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2020-05-15T00:00:00Z"
+          },
+          "personProfilePicture": {
+            "type": "string",
+            "example": "https://cdn.example.com/photos/john.png"
+          },
+          "profilePictureId": {
+            "type": "string",
+            "example": "uuid-of-profile-picture"
+          },
+          "favQuote": {
+            "type": "string",
+            "example": "“Live life to the fullest.”"
+          },
+          "featuredPhotoId": {
+            "type": "string",
+            "example": "uuid-of-featured-photo"
+          },
+          "featuredPhotoURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/photos/featured.jpg"
+          },
+          "lifeStoryText": {
+            "type": "string",
+            "example": "John was a wonderful father and friend..."
+          },
+          "lifeStoryImageId": {
+            "type": "string",
+            "example": "uuid-of-life-story-image"
+          },
+          "lifeStoryImageURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/photos/life-story.jpg"
+          },
+          "publishStatus": {
+            "type": "string",
+            "example": "draft",
+            "enum": [
+              "draft",
+              "standard",
+              "private",
+              "archived"
+            ]
+          },
+          "eventStart": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-09-01T10:00:00Z"
+          },
+          "eventDuration": {
+            "type": "string",
+            "example": "48h"
+          },
+          "autoRevertToFullMode": {
+            "type": "boolean",
+            "example": true
+          },
+          "slug": {
+            "type": "string",
+            "example": "john-doe-memorial"
+          },
+          "pageURL": {
+            "type": "string",
+            "example": "https://rememberme.com/memorial/john-doe"
+          },
+          "landingModeType": {
+            "type": "string",
+            "example": "full-mode",
+            "enum": [
+              "full-mode",
+              "event-mode",
+              "video-only-mode"
+            ],
+            "description": "Memorial mode type from landing mode"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-29T09:21:45Z"
+          },
+          "userMedia": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReadUserMediaResponseDto"
+            }
+          },
+          "userTributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReadUserTributeResponseDto"
+            }
+          },
+          "favoriteSayings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReadMemorialSayingResponseDto"
+            }
+          },
+          "qrCode": {
+            "$ref": "#/components/schemas/ReadMemorialQRCodeResponseDto"
+          }
+        },
+        "required": [
+          "id",
+          "creatorId",
+          "landingModeId",
+          "templateId",
+          "autoRevertToFullMode",
+          "landingModeType",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CreateUserMediaResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "UpdateUserMediaResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "UpdateUserTributesResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "CreateMemorialQRCodeRequestDto": {
+        "type": "object",
+        "properties": {
+          "memorialId": {
+            "type": "string",
+            "example": "uuid-of-memorial"
+          },
+          "qrCodeData": {
+            "type": "string",
+            "example": "https://rememberme.com/memorial/john-doe",
+            "description": "The URL/data encoded in the QR code"
+          },
+          "qrCodeImageURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/qr-codes/qr-code.png"
+          },
+          "qrCodeImageId": {
+            "type": "string",
+            "example": "uuid-of-qr-code-image"
+          },
+          "description": {
+            "type": "string",
+            "example": "QR code for sharing memorial page"
+          }
+        },
+        "required": [
+          "memorialId"
+        ]
+      },
+      "CreateMemorialQRCodeResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-qr-code"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "UpdateMemorialQRCodeRequestDto": {
+        "type": "object",
+        "properties": {
+          "qrCodeData": {
+            "type": "string",
+            "example": "https://rememberme.com/memorial/john-doe"
+          },
+          "qrCodeImageURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/qr-codes/qr-code.png"
+          },
+          "qrCodeImageId": {
+            "type": "string",
+            "example": "uuid-of-qr-code-image"
+          },
+          "description": {
+            "type": "string",
+            "example": "QR code for sharing memorial page"
+          }
+        }
+      },
+      "UpdateMemorialQRCodeResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-qr-code"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "FeatureMemorialRequestDto": {
+        "type": "object",
+        "properties": {
+          "memorialId": {
+            "type": "string",
+            "example": "uuid-of-memorial"
+          }
+        },
+        "required": [
+          "memorialId"
+        ]
+      },
+      "FeatureMemorialResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-featured-memorial"
+          },
+          "userId": {
+            "type": "string",
+            "example": "uuid-of-user"
+          },
+          "memorialId": {
+            "type": "string",
+            "example": "uuid-of-memorial"
+          },
+          "isFeature": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether the memorial is currently featured"
+          }
+        },
+        "required": [
+          "id",
+          "userId",
+          "memorialId",
+          "isFeature"
+        ]
+      },
+      "ReadUserFeaturedMemorialResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-featured-memorial"
+          },
+          "userId": {
+            "type": "string",
+            "example": "uuid-of-user"
+          },
+          "memorialId": {
+            "type": "string",
+            "example": "uuid-of-memorial"
+          },
+          "isFeature": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether the memorial is currently featured"
+          },
+          "memorial": {
+            "$ref": "#/components/schemas/ReadMemorialResponseDto"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "userId",
+          "memorialId",
+          "isFeature",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CreateContactUsRequestDto": {
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "type": "string",
+            "example": "2118 Thornridge Cir."
+          },
+          "addressLine2": {
+            "type": "string",
+            "example": "Suite 100"
+          },
+          "city": {
+            "type": "string",
+            "example": "Syracuse"
+          },
+          "state": {
+            "type": "string",
+            "example": "Connecticut"
+          },
+          "zipCode": {
+            "type": "string",
+            "example": "35624"
+          },
+          "country": {
+            "type": "string",
+            "example": "United States"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "(171) 555-2111"
+          },
+          "emailAddress": {
+            "type": "string",
+            "example": "rememberme@demo.com"
+          },
+          "facebookUrl": {
+            "type": "string",
+            "example": "https://www.facebook.com/rememberme"
+          },
+          "instagramUrl": {
+            "type": "string",
+            "example": "https://www.instagram.com/rememberme"
+          },
+          "twitterUrl": {
+            "type": "string",
+            "example": "https://www.twitter.com/rememberme"
+          },
+          "linkedinUrl": {
+            "type": "string",
+            "example": "https://www.linkedin.com/company/rememberme"
+          }
+        }
+      },
+      "CreateContactUsResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-contact-us"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "ReadContactUsResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-contact-us"
+          },
+          "addressLine1": {
+            "type": "string",
+            "example": "2118 Thornridge Cir."
+          },
+          "addressLine2": {
+            "type": "string",
+            "example": "Suite 100"
+          },
+          "city": {
+            "type": "string",
+            "example": "Syracuse"
+          },
+          "state": {
+            "type": "string",
+            "example": "Connecticut"
+          },
+          "zipCode": {
+            "type": "string",
+            "example": "35624"
+          },
+          "country": {
+            "type": "string",
+            "example": "United States"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "(171) 555-2111"
+          },
+          "emailAddress": {
+            "type": "string",
+            "example": "rememberme@demo.com"
+          },
+          "facebookUrl": {
+            "type": "string",
+            "example": "https://www.facebook.com/rememberme"
+          },
+          "instagramUrl": {
+            "type": "string",
+            "example": "https://www.instagram.com/rememberme"
+          },
+          "twitterUrl": {
+            "type": "string",
+            "example": "https://www.twitter.com/rememberme"
+          },
+          "linkedinUrl": {
+            "type": "string",
+            "example": "https://www.linkedin.com/company/rememberme"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "UpdateContactUsRequestDto": {
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "type": "string",
+            "example": "2118 Thornridge Cir."
+          },
+          "addressLine2": {
+            "type": "string",
+            "example": "Suite 100"
+          },
+          "city": {
+            "type": "string",
+            "example": "Syracuse"
+          },
+          "state": {
+            "type": "string",
+            "example": "Connecticut"
+          },
+          "zipCode": {
+            "type": "string",
+            "example": "35624"
+          },
+          "country": {
+            "type": "string",
+            "example": "United States"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "(171) 555-2111"
+          },
+          "emailAddress": {
+            "type": "string",
+            "example": "rememberme@demo.com"
+          },
+          "facebookUrl": {
+            "type": "string",
+            "example": "https://www.facebook.com/rememberme"
+          },
+          "instagramUrl": {
+            "type": "string",
+            "example": "https://www.instagram.com/rememberme"
+          },
+          "twitterUrl": {
+            "type": "string",
+            "example": "https://www.twitter.com/rememberme"
+          },
+          "linkedinUrl": {
+            "type": "string",
+            "example": "https://www.linkedin.com/company/rememberme"
+          }
+        }
+      },
+      "UpdateContactUsResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-contact-us"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "CreateComplaintRequestDto": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "example": "Perry Wilson"
+          },
+          "userEmail": {
+            "type": "string",
+            "example": "perry.wilson@example.com"
+          },
+          "userPhoneNumber": {
+            "type": "string",
+            "example": "(219) 555-0114"
+          },
+          "messageType": {
+            "type": "string",
+            "example": "message",
+            "enum": [
+              "complaint",
+              "suggestion",
+              "message"
+            ],
+            "description": "Type of message: complaint, suggestion, or message",
+            "default": "message"
+          },
+          "subject": {
+            "type": "string",
+            "example": "Question about memorial services"
+          },
+          "messageContent": {
+            "type": "string",
+            "example": "I would like to know more about your memorial services..."
+          }
+        },
+        "required": [
+          "userName",
+          "userEmail",
+          "messageContent"
+        ]
+      },
+      "CreateComplaintResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-complaint"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "ReadComplaintResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-complaint"
+          },
+          "userName": {
+            "type": "string",
+            "example": "Perry Wilson"
+          },
+          "userEmail": {
+            "type": "string",
+            "example": "perry.wilson@example.com"
+          },
+          "userPhoneNumber": {
+            "type": "string",
+            "example": "(219) 555-0114"
+          },
+          "messageType": {
+            "type": "string",
+            "example": "message",
+            "enum": [
+              "complaint",
+              "suggestion",
+              "message"
+            ]
+          },
+          "subject": {
+            "type": "string",
+            "example": "Question about memorial services"
+          },
+          "messageContent": {
+            "type": "string",
+            "example": "I would like to know more about your memorial services..."
+          },
+          "userId": {
+            "type": "string",
+            "example": "uuid-of-user",
+            "description": "User ID if submitted by authenticated user"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "userName",
+          "userEmail",
+          "messageType",
+          "messageContent",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CreateLegalDocumentRequestDto": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "privacy_policy",
+            "enum": [
+              "privacy_policy",
+              "terms_and_conditions"
+            ],
+            "description": "Type of legal document: privacy_policy or terms_and_conditions"
+          },
+          "content": {
+            "type": "string",
+            "example": "This Privacy Policy describes how Remember Me Memorials LLC collects, uses, and protects your personal information...",
+            "description": "Full content of the legal document (long text)"
+          },
+          "effectiveDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-01-01",
+            "description": "Effective date of the document (ISO format)"
+          }
+        },
+        "required": [
+          "type",
+          "content"
+        ]
+      },
+      "CreateLegalDocumentResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-document"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "ReadLegalDocumentResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-document"
+          },
+          "type": {
+            "type": "string",
+            "example": "privacy_policy",
+            "enum": [
+              "privacy_policy",
+              "terms_and_conditions"
+            ]
+          },
+          "content": {
+            "type": "string",
+            "example": "This Privacy Policy describes how Remember Me Memorials LLC collects, uses, and protects your personal information...",
+            "description": "Full content of the legal document"
+          },
+          "effectiveDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-01-01T00:00:00Z"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "content",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "UpdateLegalDocumentRequestDto": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string",
+            "example": "This Privacy Policy describes how Remember Me Memorials LLC collects, uses, and protects your personal information...",
+            "description": "Full content of the legal document (long text)"
+          },
+          "effectiveDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-01-01",
+            "description": "Effective date of the document (ISO format)"
+          }
+        }
+      },
+      "UpdateLegalDocumentResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-document"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "CreateSubscriptionPackageRequestDto": {
+        "type": "object",
+        "properties": {
+          "packageName": {
+            "type": "string",
+            "example": "Essential Tribute",
+            "description": "Name of the subscription package"
+          },
+          "iconId": {
+            "type": "string",
+            "example": "heart-icon",
+            "description": "Identifier for the package icon"
+          },
+          "iconURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/icons/heart.png",
+            "description": "URL to the package icon"
+          },
+          "price": {
+            "type": "number",
+            "example": 5,
+            "description": "Price of the package"
+          },
+          "priceUnit": {
+            "type": "string",
+            "example": "month",
+            "enum": [
+              "month",
+              "year"
+            ],
+            "description": "Unit for the price (month or year)",
+            "default": "month"
+          },
+          "storageAmount": {
+            "type": "number",
+            "example": 5,
+            "description": "Storage amount included in the package"
+          },
+          "storageUnit": {
+            "type": "string",
+            "example": "GB",
+            "enum": [
+              "GB",
+              "TB"
+            ],
+            "description": "Unit for storage (GB or TB)",
+            "default": "GB"
+          },
+          "features": {
+            "example": [
+              "Complete funeral arrangements",
+              "Transportation and logistics",
+              "Documentation assistance",
+              "Traditional ceremony coordination"
+            ],
+            "description": "Array of features included in the package",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "isActive": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether the package is active",
+            "default": true
+          },
+          "sortOrder": {
+            "type": "number",
+            "example": 0,
+            "description": "Sort order for displaying packages",
+            "default": 0
+          }
+        },
+        "required": [
+          "packageName",
+          "price",
+          "storageAmount",
+          "features"
+        ]
+      },
+      "CreateSubscriptionPackageResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-package"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "ReadSubscriptionPackageResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-package"
+          },
+          "packageName": {
+            "type": "string",
+            "example": "Essential Tribute"
+          },
+          "iconId": {
+            "type": "string",
+            "example": "heart-icon"
+          },
+          "iconURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/icons/heart.png"
+          },
+          "price": {
+            "type": "number",
+            "example": 5
+          },
+          "priceUnit": {
+            "type": "string",
+            "example": "month",
+            "enum": [
+              "month",
+              "year"
+            ]
+          },
+          "storageAmount": {
+            "type": "number",
+            "example": 5
+          },
+          "storageUnit": {
+            "type": "string",
+            "example": "GB",
+            "enum": [
+              "GB",
+              "TB"
+            ]
+          },
+          "features": {
+            "example": [
+              "Complete funeral arrangements",
+              "Transportation and logistics",
+              "Documentation assistance",
+              "Traditional ceremony coordination"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "isActive": {
+            "type": "boolean",
+            "example": true
+          },
+          "sortOrder": {
+            "type": "number",
+            "example": 0
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-08-28T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "packageName",
+          "price",
+          "priceUnit",
+          "storageAmount",
+          "storageUnit",
+          "features",
+          "isActive",
+          "sortOrder",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "UpdateSubscriptionPackageRequestDto": {
+        "type": "object",
+        "properties": {
+          "packageName": {
+            "type": "string",
+            "example": "Essential Tribute",
+            "description": "Name of the subscription package"
+          },
+          "iconId": {
+            "type": "string",
+            "example": "heart-icon",
+            "description": "Identifier for the package icon"
+          },
+          "iconURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/icons/heart.png",
+            "description": "URL to the package icon"
+          },
+          "price": {
+            "type": "number",
+            "example": 5,
+            "description": "Price of the package"
+          },
+          "priceUnit": {
+            "type": "string",
+            "example": "month",
+            "enum": [
+              "month",
+              "year"
+            ],
+            "description": "Unit for the price (month or year)"
+          },
+          "storageAmount": {
+            "type": "number",
+            "example": 5,
+            "description": "Storage amount included in the package"
+          },
+          "storageUnit": {
+            "type": "string",
+            "example": "GB",
+            "enum": [
+              "GB",
+              "TB"
+            ],
+            "description": "Unit for storage (GB or TB)"
+          },
+          "features": {
+            "example": [
+              "Complete funeral arrangements",
+              "Transportation and logistics",
+              "Documentation assistance",
+              "Traditional ceremony coordination"
+            ],
+            "description": "Array of features included in the package",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "isActive": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether the package is active"
+          },
+          "sortOrder": {
+            "type": "number",
+            "example": 0,
+            "description": "Sort order for displaying packages"
+          }
+        }
+      },
+      "UpdateSubscriptionPackageResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-package"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "CreateUserNotificationSettingRequestDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "example": "04175c2d-c9f5-435c-b82c-7e3ae4d2c821"
+          },
+          "IsInAppAllowed": {
+            "type": "boolean",
+            "example": true
+          },
+          "IsEmailAllowed": {
+            "type": "boolean",
+            "example": true
+          },
+          "IsDesktopNotificationAllowed": {
+            "type": "boolean",
+            "example": false
+          },
+          "IsUnreadBadgeEnabled": {
+            "type": "boolean",
+            "example": false
+          }
+        },
+        "required": [
+          "userId"
+        ]
+      },
+      "ReadUserNotificationSettingResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "IsInAppAllowed": {
+            "type": "boolean"
+          },
+          "IsEmailAllowed": {
+            "type": "boolean"
+          },
+          "IsDesktopNotificationAllowed": {
+            "type": "boolean"
+          },
+          "IsUnreadBadgeEnabled": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "description",
+          "userId",
+          "IsInAppAllowed",
+          "IsEmailAllowed",
+          "IsDesktopNotificationAllowed",
+          "IsUnreadBadgeEnabled",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "UpdateUserNotificationSettingsRequestDto": {
+        "type": "object",
+        "properties": {
+          "IsInAppAllowed": {
+            "type": "boolean",
+            "example": true
+          },
+          "IsEmailAllowed": {
+            "type": "boolean",
+            "example": true
+          },
+          "IsDesktopNotificationAllowed": {
+            "type": "boolean",
+            "example": false
+          },
+          "IsUnreadBadgeEnabled": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "CreateUserAnswerRequestDto": {
+        "type": "object",
+        "properties": {
+          "answer": {
+            "type": "string",
+            "description": "The user answer text"
+          }
+        },
+        "required": [
+          "answer"
+        ]
+      },
+      "CreateUserAnswersResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "UpdateUserAnswerRequestDto": {
+        "type": "object",
+        "properties": {
+          "answer": {
+            "type": "string",
+            "description": "The user answer text"
+          }
+        }
+      },
+      "UpdateUserAnswersResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "ReadUserAnswerResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-answer"
+          },
+          "answer": {
+            "type": "string",
+            "example": "I exercise 3 times a week."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-09-01T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-09-01T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "answer",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CreateUserQuestionnaireRequestDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title of the questionnaire"
+          },
+          "questionnaire": {
+            "type": "string",
+            "description": "Questionnaire text or description"
+          },
+          "iconURL": {
+            "type": "string",
+            "description": "Icon URL of the questionnaire"
+          },
+          "iconId": {
+            "type": "string",
+            "description": "Icon public ID from Cloudinary or S3"
+          }
+        },
+        "required": [
+          "title",
+          "questionnaire"
+        ]
+      },
+      "CreateUserQuestionnaireResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "UpdateUserQuestionnaireRequestDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title of the questionnaire"
+          },
+          "questionnaire": {
+            "type": "string",
+            "description": "Questionnaire text or description"
+          },
+          "iconURL": {
+            "type": "string",
+            "description": "Icon URL of the questionnaire"
+          },
+          "iconId": {
+            "type": "string",
+            "description": "Icon public ID from Cloudinary or S3"
+          }
+        }
+      },
+      "UpdateUserQuestionnaireResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "ReadUserQuestionnaireResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-questionnaire"
+          },
+          "title": {
+            "type": "string",
+            "example": "General Health Questionnaire"
+          },
+          "questionnaire": {
+            "type": "string",
+            "example": "What is your medical history?"
+          },
+          "iconURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/icons/questionnaire.png"
+          },
+          "iconId": {
+            "type": "string",
+            "example": "icon-public-id"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-09-01T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-09-01T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "questionnaire",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CreateUserQuestionnaireAnswerRequestDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "The ID of the user"
+          },
+          "questionnaireId": {
+            "type": "string",
+            "description": "The ID of the questionnaire"
+          },
+          "answerId": {
+            "type": "string",
+            "description": "The ID of the selected answer"
+          }
+        },
+        "required": [
+          "userId",
+          "questionnaireId",
+          "answerId"
+        ]
+      },
+      "CreateUserQuestionnaireAnswersResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "UpdateUserQuestionnaireAnswerRequestDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "The ID of the user"
+          },
+          "questionnaireId": {
+            "type": "string",
+            "description": "The ID of the questionnaire"
+          },
+          "answerId": {
+            "type": "string",
+            "description": "The ID of the selected answer"
+          }
+        }
+      },
+      "UpdateUserQuestionnaireAnswersResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "ReadUserQuestionnaireAnswerResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-questionnaire-answer"
+          },
+          "userId": {
+            "type": "string",
+            "example": "uuid-of-user"
+          },
+          "questionnaireId": {
+            "type": "string",
+            "example": "uuid-of-questionnaire"
+          },
+          "answerId": {
+            "type": "string",
+            "example": "uuid-of-answer"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-09-01T12:34:56Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-09-01T12:34:56Z"
+          }
+        },
+        "required": [
+          "id",
+          "userId",
+          "questionnaireId",
+          "answerId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "SignUpRequestDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "example": "example@email.com"
+          },
+          "password": {
+            "type": "string"
+          },
+          "googleId": {
+            "type": "string",
+            "example": "google_user_id_123"
+          },
+          "facebookId": {
+            "type": "string",
+            "example": "facebook_user_id_123"
+          }
+        },
+        "required": [
+          "name",
+          "email"
+        ]
+      },
+      "SignUpResponseDto": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "accessToken": {
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "existing": {
+            "type": "boolean"
+          },
+          "otpCode": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "message",
+          "userId",
+          "otpCode"
+        ]
+      },
+      "SignInRequestDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "example@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "password"
+          },
+          "googleId": {
+            "type": "string",
+            "example": "google_user_id_123"
+          },
+          "facebookId": {
+            "type": "string",
+            "example": "facebook_user_id_123"
+          }
+        }
+      },
+      "SignInResponseDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "surName": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "accessToken": {
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "role": {
+            "type": "object"
+          },
+          "authProvider": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userId"
+        ]
+      }
+    }
+  }
+}
