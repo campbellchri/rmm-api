@@ -2757,16 +2757,38 @@
         ]
       }
     },
-    "/user-answers": {
+    "/faq/categories": {
+      "get": {
+        "operationId": "FaqController_getAllCategories",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadFaqCategoryResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Faq"
+        ]
+      },
       "post": {
-        "operationId": "UserAnswersController_createAnswer",
+        "operationId": "FaqController_createCategory",
         "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateUserAnswerRequestDto"
+                "$ref": "#/components/schemas/CreateFaqCategoryRequestDto"
               }
             }
           }
@@ -2777,7 +2799,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateUserAnswersResponseDto"
+                  "$ref": "#/components/schemas/CreateFaqCategoryResponseDto"
                 }
               }
             }
@@ -2793,19 +2815,30 @@
           }
         },
         "tags": [
-          "UserAnswers"
+          "Faq"
         ]
-      },
+      }
+    },
+    "/faq/categories/{id}": {
       "get": {
-        "operationId": "UserAnswersController_getAllAnswers",
-        "parameters": [],
+        "operationId": "FaqController_getCategoryById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReadUserAnswerResponseDto"
+                  "$ref": "#/components/schemas/ReadFaqCategoryResponseDto"
                 }
               }
             }
@@ -2818,13 +2851,11 @@
           }
         },
         "tags": [
-          "UserAnswers"
+          "Faq"
         ]
-      }
-    },
-    "/user-answers/{id}": {
+      },
       "patch": {
-        "operationId": "UserAnswersController_updateAnswer",
+        "operationId": "FaqController_updateCategory",
         "parameters": [
           {
             "name": "id",
@@ -2840,7 +2871,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUserAnswerRequestDto"
+                "$ref": "#/components/schemas/UpdateFaqCategoryRequestDto"
               }
             }
           }
@@ -2851,7 +2882,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateUserAnswersResponseDto"
+                  "$ref": "#/components/schemas/UpdateFaqCategoryResponseDto"
                 }
               }
             }
@@ -2867,11 +2898,11 @@
           }
         },
         "tags": [
-          "UserAnswers"
+          "Faq"
         ]
       },
       "delete": {
-        "operationId": "UserAnswersController_deleteAnswer",
+        "operationId": "FaqController_deleteCategory",
         "parameters": [
           {
             "name": "id",
@@ -2888,7 +2919,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateUserAnswersResponseDto"
+                  "$ref": "#/components/schemas/ReadFaqCategoryResponseDto"
                 }
               }
             }
@@ -2907,56 +2938,42 @@
           }
         },
         "tags": [
-          "UserAnswers"
+          "Faq"
         ]
       }
     },
-    "/user-answers/readById/{id}": {
+    "/faq/items": {
       "get": {
-        "operationId": "UserAnswersController_getAnswerById",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "FaqController_getAllItems",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReadUserAnswerResponseDto"
+                  "$ref": "#/components/schemas/ReadFaqItemResponseDto"
                 }
               }
             }
-          },
-          "404": {
-            "description": ""
           },
           "500": {
             "description": ""
           }
         },
         "tags": [
-          "UserAnswers"
+          "Faq"
         ]
-      }
-    },
-    "/user-questionnaires": {
+      },
       "post": {
-        "operationId": "UserQuestionnaireController_createQuestionnaire",
+        "operationId": "FaqController_createItem",
         "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateUserQuestionnaireRequestDto"
+                "$ref": "#/components/schemas/CreateFaqItemRequestDto"
               }
             }
           }
@@ -2967,7 +2984,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateUserQuestionnaireResponseDto"
+                  "$ref": "#/components/schemas/CreateFaqItemResponseDto"
                 }
               }
             }
@@ -2983,19 +3000,30 @@
           }
         },
         "tags": [
-          "UserQuestionnaire"
+          "Faq"
         ]
-      },
+      }
+    },
+    "/faq/items/{id}": {
       "get": {
-        "operationId": "UserQuestionnaireController_getAllQuestionnaires",
-        "parameters": [],
+        "operationId": "FaqController_getItemById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReadUserQuestionnaireResponseDto"
+                  "$ref": "#/components/schemas/ReadFaqItemResponseDto"
                 }
               }
             }
@@ -3008,13 +3036,11 @@
           }
         },
         "tags": [
-          "UserQuestionnaire"
+          "Faq"
         ]
-      }
-    },
-    "/user-questionnaires/{id}": {
+      },
       "patch": {
-        "operationId": "UserQuestionnaireController_updateQuestionnaire",
+        "operationId": "FaqController_updateItem",
         "parameters": [
           {
             "name": "id",
@@ -3030,7 +3056,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUserQuestionnaireRequestDto"
+                "$ref": "#/components/schemas/UpdateFaqItemRequestDto"
               }
             }
           }
@@ -3041,7 +3067,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateUserQuestionnaireResponseDto"
+                  "$ref": "#/components/schemas/UpdateFaqItemResponseDto"
                 }
               }
             }
@@ -3057,11 +3083,11 @@
           }
         },
         "tags": [
-          "UserQuestionnaire"
+          "Faq"
         ]
       },
       "delete": {
-        "operationId": "UserQuestionnaireController_deleteQuestionnaire",
+        "operationId": "FaqController_deleteItem",
         "parameters": [
           {
             "name": "id",
@@ -3078,7 +3104,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateUserQuestionnaireResponseDto"
+                  "$ref": "#/components/schemas/ReadFaqItemResponseDto"
                 }
               }
             }
@@ -3097,16 +3123,16 @@
           }
         },
         "tags": [
-          "UserQuestionnaire"
+          "Faq"
         ]
       }
     },
-    "/user-questionnaires/readById/{id}": {
+    "/faq/categories/{categoryId}/items": {
       "get": {
-        "operationId": "UserQuestionnaireController_getQuestionnaireById",
+        "operationId": "FaqController_getItemsByCategoryId",
         "parameters": [
           {
-            "name": "id",
+            "name": "categoryId",
             "required": true,
             "in": "path",
             "schema": {
@@ -3120,208 +3146,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReadUserQuestionnaireResponseDto"
+                  "$ref": "#/components/schemas/ReadFaqItemResponseDto"
                 }
               }
             }
-          },
-          "404": {
-            "description": ""
           },
           "500": {
             "description": ""
           }
         },
         "tags": [
-          "UserQuestionnaire"
-        ]
-      }
-    },
-    "/user-questionnaire-answers": {
-      "post": {
-        "operationId": "UserQuestionnaireAnswersController_create",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUserQuestionnaireAnswerRequestDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreateUserQuestionnaireAnswersResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": ""
-          },
-          "409": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "UserQuestionnaireAnswers"
-        ]
-      },
-      "get": {
-        "operationId": "UserQuestionnaireAnswersController_getAll",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReadUserQuestionnaireAnswerResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "UserQuestionnaireAnswers"
-        ]
-      }
-    },
-    "/user-questionnaire-answers/{id}": {
-      "patch": {
-        "operationId": "UserQuestionnaireAnswersController_update",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateUserQuestionnaireAnswerRequestDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UpdateUserQuestionnaireAnswersResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": ""
-          },
-          "404": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "UserQuestionnaireAnswers"
-        ]
-      },
-      "get": {
-        "operationId": "UserQuestionnaireAnswersController_getById",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReadUserQuestionnaireAnswerResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "UserQuestionnaireAnswers"
-        ]
-      },
-      "delete": {
-        "operationId": "UserQuestionnaireAnswersController_delete",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReadUserQuestionnaireAnswerResponseDto"
-                }
-              }
-            }
-          },
-          "204": {
-            "description": ""
-          },
-          "404": {
-            "description": ""
-          },
-          "409": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "UserQuestionnaireAnswers"
+          "Faq"
         ]
       }
     },
@@ -5724,286 +5559,239 @@
           }
         }
       },
-      "CreateUserAnswerRequestDto": {
-        "type": "object",
-        "properties": {
-          "answer": {
-            "type": "string",
-            "description": "The user answer text"
-          }
-        },
-        "required": [
-          "answer"
-        ]
-      },
-      "CreateUserAnswersResponseDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id"
-        ]
-      },
-      "UpdateUserAnswerRequestDto": {
-        "type": "object",
-        "properties": {
-          "answer": {
-            "type": "string",
-            "description": "The user answer text"
-          }
-        }
-      },
-      "UpdateUserAnswersResponseDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id"
-        ]
-      },
-      "ReadUserAnswerResponseDto": {
+      "ReadFaqItemResponseDto": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
-            "example": "uuid-of-answer"
+            "example": "uuid-of-faq-item"
+          },
+          "question": {
+            "type": "string",
+            "example": "How do I reset my password?"
           },
           "answer": {
             "type": "string",
-            "example": "I exercise 3 times a week."
+            "example": "You can reset your password by clicking on the \"Forgot Password\" link..."
+          },
+          "categoryId": {
+            "type": "string",
+            "example": "uuid-of-faq-category"
+          },
+          "order": {
+            "type": "number",
+            "example": 0
           },
           "createdAt": {
             "format": "date-time",
             "type": "string",
-            "example": "2025-09-01T12:34:56Z"
+            "example": "2025-08-28T12:34:56Z"
           },
           "updatedAt": {
             "format": "date-time",
             "type": "string",
-            "example": "2025-09-01T12:34:56Z"
+            "example": "2025-08-28T12:34:56Z"
           }
         },
         "required": [
           "id",
+          "question",
           "answer",
+          "categoryId",
+          "order",
           "createdAt",
           "updatedAt"
         ]
       },
-      "CreateUserQuestionnaireRequestDto": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "description": "Title of the questionnaire"
-          },
-          "questionnaire": {
-            "type": "string",
-            "description": "Questionnaire text or description"
-          },
-          "iconURL": {
-            "type": "string",
-            "description": "Icon URL of the questionnaire"
-          },
-          "iconId": {
-            "type": "string",
-            "description": "Icon public ID from Cloudinary or S3"
-          }
-        },
-        "required": [
-          "title",
-          "questionnaire"
-        ]
-      },
-      "CreateUserQuestionnaireResponseDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id"
-        ]
-      },
-      "UpdateUserQuestionnaireRequestDto": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "description": "Title of the questionnaire"
-          },
-          "questionnaire": {
-            "type": "string",
-            "description": "Questionnaire text or description"
-          },
-          "iconURL": {
-            "type": "string",
-            "description": "Icon URL of the questionnaire"
-          },
-          "iconId": {
-            "type": "string",
-            "description": "Icon public ID from Cloudinary or S3"
-          }
-        }
-      },
-      "UpdateUserQuestionnaireResponseDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id"
-        ]
-      },
-      "ReadUserQuestionnaireResponseDto": {
+      "ReadFaqCategoryResponseDto": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
-            "example": "uuid-of-questionnaire"
+            "example": "uuid-of-faq-category"
           },
           "title": {
             "type": "string",
-            "example": "General Health Questionnaire"
-          },
-          "questionnaire": {
-            "type": "string",
-            "example": "What is your medical history?"
+            "example": "Account & Login"
           },
           "iconURL": {
             "type": "string",
-            "example": "https://cdn.example.com/icons/questionnaire.png"
+            "example": "https://example.com/icon.png"
           },
           "iconId": {
             "type": "string",
             "example": "icon-public-id"
           },
+          "order": {
+            "type": "number",
+            "example": 0
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReadFaqItemResponseDto"
+            }
+          },
           "createdAt": {
             "format": "date-time",
             "type": "string",
-            "example": "2025-09-01T12:34:56Z"
+            "example": "2025-08-28T12:34:56Z"
           },
           "updatedAt": {
             "format": "date-time",
             "type": "string",
-            "example": "2025-09-01T12:34:56Z"
+            "example": "2025-08-28T12:34:56Z"
           }
         },
         "required": [
           "id",
           "title",
-          "questionnaire",
+          "order",
+          "items",
           "createdAt",
           "updatedAt"
         ]
       },
-      "CreateUserQuestionnaireAnswerRequestDto": {
+      "CreateFaqCategoryRequestDto": {
         "type": "object",
         "properties": {
-          "userId": {
+          "title": {
             "type": "string",
-            "description": "The ID of the user"
+            "description": "Title of the FAQ category"
           },
-          "questionnaireId": {
+          "iconURL": {
             "type": "string",
-            "description": "The ID of the questionnaire"
+            "description": "Icon URL of the FAQ category"
           },
-          "answerId": {
+          "iconId": {
             "type": "string",
-            "description": "The ID of the selected answer"
+            "description": "Icon public ID from Cloudinary or S3"
+          },
+          "order": {
+            "type": "number",
+            "description": "Order/position of the category",
+            "default": 0
           }
         },
         "required": [
-          "userId",
-          "questionnaireId",
-          "answerId"
+          "title"
         ]
       },
-      "CreateUserQuestionnaireAnswersResponseDto": {
+      "CreateFaqCategoryResponseDto": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "example": "uuid-of-faq-category"
           }
         },
         "required": [
           "id"
         ]
       },
-      "UpdateUserQuestionnaireAnswerRequestDto": {
+      "UpdateFaqCategoryRequestDto": {
         "type": "object",
         "properties": {
-          "userId": {
+          "title": {
             "type": "string",
-            "description": "The ID of the user"
+            "description": "Title of the FAQ category"
           },
-          "questionnaireId": {
+          "iconURL": {
             "type": "string",
-            "description": "The ID of the questionnaire"
+            "description": "Icon URL of the FAQ category"
           },
-          "answerId": {
+          "iconId": {
             "type": "string",
-            "description": "The ID of the selected answer"
+            "description": "Icon public ID from Cloudinary or S3"
+          },
+          "order": {
+            "type": "number",
+            "description": "Order/position of the category"
           }
         }
       },
-      "UpdateUserQuestionnaireAnswersResponseDto": {
+      "UpdateFaqCategoryResponseDto": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "example": "uuid-of-faq-category"
           }
         },
         "required": [
           "id"
         ]
       },
-      "ReadUserQuestionnaireAnswerResponseDto": {
+      "CreateFaqItemRequestDto": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "The FAQ question"
+          },
+          "answer": {
+            "type": "string",
+            "description": "The FAQ answer"
+          },
+          "categoryId": {
+            "type": "string",
+            "description": "The ID of the FAQ category"
+          },
+          "order": {
+            "type": "number",
+            "description": "Order/position of the item within the category",
+            "default": 0
+          }
+        },
+        "required": [
+          "question",
+          "answer",
+          "categoryId"
+        ]
+      },
+      "CreateFaqItemResponseDto": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
-            "example": "uuid-of-questionnaire-answer"
-          },
-          "userId": {
-            "type": "string",
-            "example": "uuid-of-user"
-          },
-          "questionnaireId": {
-            "type": "string",
-            "example": "uuid-of-questionnaire"
-          },
-          "answerId": {
-            "type": "string",
-            "example": "uuid-of-answer"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string",
-            "example": "2025-09-01T12:34:56Z"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string",
-            "example": "2025-09-01T12:34:56Z"
+            "example": "uuid-of-faq-item"
           }
         },
         "required": [
-          "id",
-          "userId",
-          "questionnaireId",
-          "answerId",
-          "createdAt",
-          "updatedAt"
+          "id"
+        ]
+      },
+      "UpdateFaqItemRequestDto": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "The FAQ question"
+          },
+          "answer": {
+            "type": "string",
+            "description": "The FAQ answer"
+          },
+          "categoryId": {
+            "type": "string",
+            "description": "The ID of the FAQ category"
+          },
+          "order": {
+            "type": "number",
+            "description": "Order/position of the item within the category"
+          }
+        }
+      },
+      "UpdateFaqItemResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "uuid-of-faq-item"
+          }
+        },
+        "required": [
+          "id"
         ]
       },
       "SignUpRequestDto": {

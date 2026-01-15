@@ -16,9 +16,7 @@ import { MemorialModule } from './memorials/memorials.module';
 import { UserMediaModule } from './userMedia/user-media.module';
 import { UserTributeModule } from './userTributes/user-tributes.module';
 import { UserNotificationSettingsModule } from './userNotificationSettings/user-notification-settings.module';
-import { UserAnswersModule } from './userAnswers/user-answers-module';
-import { UserQuestionnaireModule } from './userQuestionnaire/user-questionnaire-module';
-import { UserQuestionnaireAnswersModule } from './userQuestionnaireAnswers/user-questionnaire-answers-module';
+import { FaqModule } from './faq/faq.module';
 import { MemorialSayingsModule } from './memorialSayings/memorial-sayings.module';
 import { MemorialQRCodesModule } from './memorialQRCodes/memorial-qr-codes.module';
 import { UserFeaturedMemorialsModule } from './userFeaturedMemorials/user-featured-memorials.module';
@@ -51,9 +49,7 @@ dotenv.config({ path: '.env' });
     LegalDocumentsModule,
     SubscriptionPackagesModule,
     UserNotificationSettingsModule,
-    UserAnswersModule,
-    UserQuestionnaireModule,
-    UserQuestionnaireAnswersModule,
+    FaqModule,
     AuthModule
   ],
   controllers: [],
