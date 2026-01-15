@@ -25,11 +25,11 @@ export class CreateMemorialRequestDto {
     creatorId?: string;
 
     @ApiProperty({ example: 'uuid-of-landing-mode' })
-    @IsUUID()
+    @IsString()
     landingModeId: string;
 
     @ApiProperty({ example: 'uuid-of-template' })
-    @IsUUID()
+    @IsString()
     templateId: string;
 
     // Person Details

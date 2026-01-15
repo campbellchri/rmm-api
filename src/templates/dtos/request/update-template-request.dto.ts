@@ -14,7 +14,7 @@ export class UpdateTemplateRequestDto {
 
     @ApiPropertyOptional()
     @IsOptional()
-    @IsUUID()
+    @IsString()
     landingModeId?: string;
 
     @ApiPropertyOptional()

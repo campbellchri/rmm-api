@@ -13,12 +13,12 @@ export class UpdateMemorialRequestDto {
 
     @ApiPropertyOptional({ example: 'uuid-of-landing-mode' })
     @IsOptional()
-    @IsUUID()
+    @IsString()
     landingModeId?: string;
 
     @ApiPropertyOptional({ example: 'uuid-of-template' })
     @IsOptional()
-    @IsUUID()
+    @IsString()
     templateId?: string;
 
     // Person Details

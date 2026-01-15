@@ -39,7 +39,7 @@ export class CreateUserMediaRequestDto {
 
     @ApiPropertyOptional()
     @IsOptional()
-    @IsUUID()
+    @IsString()
     memorialId: string;
 
     @ApiPropertyOptional({ description: 'Will be automatically set from authenticated user if not provided' })
