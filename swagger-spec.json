@@ -3591,6 +3591,10 @@
             "type": "string",
             "description": "Description of the landing mode"
           },
+          "landingModeType": {
+            "type": "string",
+            "description": "Landing mode type"
+          },
           "iconId": {
             "type": "string",
             "description": "Icon file ID reference"

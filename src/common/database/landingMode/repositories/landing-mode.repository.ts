@@ -109,6 +109,7 @@ export class LandingModeRepository extends BaseRepository {
             landingMode.iconId = model.iconId ?? landingMode.iconId;
             landingMode.iconURL = model.iconURL ?? landingMode.iconURL;
             landingMode.isActive = model.isActive ?? landingMode.isActive;
+            landingMode.landingModeType = model.landingModeType ?? landingMode.landingModeType;
 
             const updated = await repository.save(landingMode);
             return { id: updated.id };

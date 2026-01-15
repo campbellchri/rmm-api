@@ -14,7 +14,7 @@ export class CreateTemplateRequestDto {
 
     @ApiPropertyOptional()
     @IsOptional()
-    @IsUUID()
+    @IsString()
     landingModeId?: string;
 
     @ApiPropertyOptional()

@@ -1,5 +1,6 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { IsBoolean, IsOptional, IsString } from 'class-validator';
+import { LandingModeTypes } from 'src/landingMode/enums/landing-mode.enum';
 
 export class UpdateLandingModeRequestDto {
     @IsOptional()
@@ -11,6 +12,11 @@ export class UpdateLandingModeRequestDto {
     @IsString()
     @ApiPropertyOptional({ description: 'Description of the landing mode' })
     description?: string;
+
+    @IsOptional()
+    @IsString()
+    @ApiPropertyOptional({ description: 'Landing mode type' })
+    landingModeType?: LandingModeTypes;
 
     @IsOptional()
     @IsString()
