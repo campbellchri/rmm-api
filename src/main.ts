@@ -15,6 +15,11 @@ async function bootstrap() {
   const port = configService.get<number>('port') ?? 4000;
   const basePath = configService.get<string>('basePath', '');
 
+  // Set global prefix if basePath is configured
+  if (basePath) {
+    app.setGlobalPrefix(basePath);
+  }
+
   // Logger
   app.useLogger(app.get(Logger));
 
@@ -38,5 +43,9 @@ async function bootstrap() {
   }
 
   await app.listen(port, '0.0.0.0');
+  console.log(`Application is running on port ${port}`);
+  console.log(`Environment: NODE_ENV=${process.env.NODE_ENV}`);
+  console.log(`Base path: ${basePath || '/'}`);
+  console.log(`Swagger enabled: ${configService.get<boolean>('swagger.enable', true)}`);
 }
 bootstrap();

@@ -3,7 +3,7 @@ import * as process from 'process';
 export default () => ({
     basePath: process.env.BASE_PATH,
     appUrl: process.env.APP_URL,
-    port: parseInt(process.env.APP_PORT, 10) || 4000,
+    port: parseInt(process.env.PORT || process.env.APP_PORT, 10) || 4000,
     enableSwagger: process.env.ENABLE_SWAGGER !== 'false',
     logLevel: 'trace',
     firebase: {
