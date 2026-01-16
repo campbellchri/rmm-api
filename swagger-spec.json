@@ -4125,17 +4125,19 @@
             "type": "string",
             "example": "John Doe"
           },
+          "personGender": {
+            "type": "string",
+            "example": "male"
+          },
           "personBirthDate": {
             "format": "date-time",
             "type": "string",
-            "example": "1950-05-10",
-            "description": "Birthdate (ISO format)"
+            "example": "1950-05-10"
           },
           "personDeathDate": {
             "format": "date-time",
             "type": "string",
-            "example": "2024-07-15",
-            "description": "Death date (ISO format)"
+            "example": "2024-07-15"
           },
           "profilePictureId": {
             "type": "string",
@@ -4145,9 +4147,43 @@
             "type": "string",
             "example": "https://cdn.example.com/photos/john.jpg"
           },
+          "description": {
+            "type": "string"
+          },
           "favQuote": {
+            "type": "string"
+          },
+          "featuredPhotoId": {
             "type": "string",
-            "example": "\"To live in hearts we leave behind is not to die.\""
+            "example": "uuid-of-featured-photo"
+          },
+          "featuredPhotoURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/featured.jpg"
+          },
+          "lifeStoryText": {
+            "type": "string"
+          },
+          "lifeStoryImageId": {
+            "type": "string",
+            "example": "uuid-of-life-story-image"
+          },
+          "lifeStoryImageURL": {
+            "type": "string",
+            "example": "https://cdn.example.com/lifestory.jpg"
+          },
+          "publishStatus": {
+            "type": "string",
+            "example": "standard"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "pageURL": {
+            "type": "string"
+          },
+          "landingModeType": {
+            "type": "string"
           },
           "eventStart": {
             "format": "date-time",
@@ -4156,12 +4192,19 @@
           },
           "eventDuration": {
             "type": "string",
-            "example": "48h",
-            "description": "Duration in hours/days"
+            "example": "48h"
           },
           "autoRevertToFullMode": {
             "type": "boolean",
             "example": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
           },
           "userMedia": {
             "type": "array",

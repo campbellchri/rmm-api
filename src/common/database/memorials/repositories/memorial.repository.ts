@@ -171,39 +171,73 @@ export class MemorialRepository extends BaseRepository {
     async update(
         model: UpdateMemorialModel,
         options?: IQueryOptions,
-    ): Promise<{ id: string }> {
+      ): Promise<{ id: string }> {
         const { entityManager } = this.parseOptions(options);
         const repository = entityManager.getRepository<MemorialEntity>(MemorialEntity);
-
+      
         try {
-            const memorial = await repository.findOne({ where: { id: model.id } });
-            if (!memorial) throw new NotFoundException('Memorial not found');
-
-            // Update fields if provided
-            memorial.favSaying = model.favSaying ?? memorial.favSaying;
-            memorial.landingModeId = model.landingModeId ?? memorial.landingModeId;
-            memorial.templateId = model.templateId ?? memorial.templateId;
-            memorial.personName = model.personName ?? memorial.personName;
-            memorial.personBirthDate = model.personBirthDate ?? memorial.personBirthDate;
-            memorial.personDeathDate = model.personDeathDate ?? memorial.personDeathDate;
-            memorial.personProfilePicture =
-                model.personProfilePicture ?? memorial.personProfilePicture;
-            memorial.profilePictureId =
-                model.profilePictureId ?? memorial.profilePictureId;
-            memorial.favQuote = model.favQuote ?? memorial.favQuote;
-            memorial.eventStart = model.eventStart ?? memorial.eventStart;
-            memorial.eventDuration = model.eventDuration ?? memorial.eventDuration;
-            memorial.autoRevertToFullMode =
-                model.autoRevertToFullMode ?? memorial.autoRevertToFullMode;
-
-            const updated = await repository.save(memorial);
-            return { id: updated.id };
+          const memorial = await repository.findOne({ where: { id: model.id } });
+          if (!memorial) {
+            throw new NotFoundException('Memorial not found');
+          }
+      
+          // Basic
+          memorial.favSaying = model.favSaying ?? memorial.favSaying;
+          memorial.description = model.description ?? memorial.description;
+          memorial.favQuote = model.favQuote ?? memorial.favQuote;
+      
+          // Landing / Template
+          memorial.landingModeId = model.landingModeId ?? memorial.landingModeId;
+          memorial.templateId = model.templateId ?? memorial.templateId;
+      
+          // Person Details
+          memorial.personName = model.personName ?? memorial.personName;
+          memorial.personGender = model.personGender ?? memorial.personGender;
+          memorial.personBirthDate = model.personBirthDate ?? memorial.personBirthDate;
+          memorial.personDeathDate = model.personDeathDate ?? memorial.personDeathDate;
+          memorial.personProfilePicture =
+            model.personProfilePicture ?? memorial.personProfilePicture;
+          memorial.profilePictureId =
+            model.profilePictureId ?? memorial.profilePictureId;
+      
+          // Featured Photo
+          memorial.featuredPhotoId =
+            model.featuredPhotoId ?? memorial.featuredPhotoId;
+          memorial.featuredPhotoURL =
+            model.featuredPhotoURL ?? memorial.featuredPhotoURL;
+      
+          // Life Story
+          memorial.lifeStoryText =
+            model.lifeStoryText ?? memorial.lifeStoryText;
+          memorial.lifeStoryImageId =
+            model.lifeStoryImageId ?? memorial.lifeStoryImageId;
+          memorial.lifeStoryImageURL =
+            model.lifeStoryImageURL ?? memorial.lifeStoryImageURL;
+      
+          // Publishing
+          memorial.publishStatus =
+            model.publishStatus ?? memorial.publishStatus;
+          memorial.slug = model.slug ?? memorial.slug;
+          memorial.pageURL = model.pageURL ?? memorial.pageURL;
+      
+          // Event
+          memorial.eventStart = model.eventStart ?? memorial.eventStart;
+          memorial.eventDuration =
+            model.eventDuration ?? memorial.eventDuration;
+          memorial.autoRevertToFullMode =
+            model.autoRevertToFullMode ?? memorial.autoRevertToFullMode;
+      
+          const updated = await repository.save(memorial);
+          return { id: updated.id };
         } catch (error) {
-            throw new InternalServerErrorException('Updating memorial failed', {
-                cause: new Error(`Updating memorial failed: ${error?.message}`),
-            });
+          console.error(error, 'error in updating memorial');
+      
+          throw new InternalServerErrorException('Updating memorial failed', {
+            cause: new Error(`Updating memorial failed: ${error?.message}`),
+          });
         }
-    }
+      }
+      
 
     /** ✅ Delete Memorial */
     async delete(id: string, options?: IQueryOptions): Promise<{ id: string }> {
