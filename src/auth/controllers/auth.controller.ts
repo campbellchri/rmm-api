@@ -50,31 +50,31 @@ export class AuthController {
     return SignInResponseDto.fromModel(response);
   }
 
-  @CreateResourceCombinedDecorators({
-    path: 'forgot-password',
-    additionalErrors: [],
-    responseType: ForgotPasswordResponseDto,
-    public: true,
-  })
-  public async forgotPassword(
-    @Body() forgotPasswordRequestDto: ForgotPasswordRequestDto,
-  ): Promise<ForgotPasswordResponseDto> {
-    const model = ForgotPasswordModel.fromDto(forgotPasswordRequestDto);
-    const response = await this.passwordResetService.forgotPassword(model);
-    return ForgotPasswordResponseDto.fromModel(response.message);
-  }
+  // @CreateResourceCombinedDecorators({
+  //   path: 'forgot-password',
+  //   additionalErrors: [],
+  //   responseType: ForgotPasswordResponseDto,
+  //   public: true,
+  // })
+  // public async forgotPassword(
+  //   @Body() forgotPasswordRequestDto: ForgotPasswordRequestDto,
+  // ): Promise<ForgotPasswordResponseDto> {
+  //   const model = ForgotPasswordModel.fromDto(forgotPasswordRequestDto);
+  //   const response = await this.passwordResetService.forgotPassword(model);
+  //   return ForgotPasswordResponseDto.fromModel(response.message);
+  // }
 
-  @CreateResourceCombinedDecorators({
-    path: 'reset-password',
-    additionalErrors: ['badRequest'],
-    responseType: ResetPasswordWithTokenResponseDto,
-    public: true,
-  })
-  public async resetPassword(
-    @Body() resetPasswordRequestDto: ResetPasswordWithTokenRequestDto,
-  ): Promise<ResetPasswordWithTokenResponseDto> {
-    const model = ResetPasswordWithTokenModel.fromDto(resetPasswordRequestDto);
-    const response = await this.passwordResetService.resetPassword(model);
-    return ResetPasswordWithTokenResponseDto.fromModel(response);
-  }
+  // @CreateResourceCombinedDecorators({
+  //   path: 'reset-password',
+  //   additionalErrors: ['badRequest'],
+  //   responseType: ResetPasswordWithTokenResponseDto,
+  //   public: true,
+  // })
+  // public async resetPassword(
+  //   @Body() resetPasswordRequestDto: ResetPasswordWithTokenRequestDto,
+  // ): Promise<ResetPasswordWithTokenResponseDto> {
+  //   const model = ResetPasswordWithTokenModel.fromDto(resetPasswordRequestDto);
+  //   const response = await this.passwordResetService.resetPassword(model);
+  //   return ResetPasswordWithTokenResponseDto.fromModel(response);
+  // }
 }

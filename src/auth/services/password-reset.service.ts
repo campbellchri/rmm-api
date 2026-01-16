@@ -27,141 +27,141 @@ export class PasswordResetService {
    * Handles forgot password request
    * Generates a secure reset token, stores it, and sends email
    */
-  async forgotPassword(
-    model: ForgotPasswordModel,
-  ): Promise<{ message: string }> {
-    try {
-      const { email } = model;
+  // async forgotPassword(
+  //   model: ForgotPasswordModel,
+  // ): Promise<{ message: string }> {
+  //   try {
+  //     const { email } = model;
 
-      // Find user by email
-      const user = await this.usersService.findByEmail(email);
+  //     // Find user by email
+  //     const user = await this.usersService.findByEmail(email);
 
-      // Security: Don't reveal if email exists or not
-      // Always return success message
-      if (!user) {
-        this.logger.warn(`Password reset requested for non-existent email: ${email}`);
-        return {
-          message:
-            'If an account with that email exists, a password reset link has been sent.',
-        };
-      }
+  //     // Security: Don't reveal if email exists or not
+  //     // Always return success message
+  //     if (!user) {
+  //       this.logger.warn(`Password reset requested for non-existent email: ${email}`);
+  //       return {
+  //         message:
+  //           'If an account with that email exists, a password reset link has been sent.',
+  //       };
+  //     }
 
-      // Check if user has a password (not social login only)
-      const userWithPassword = await this.usersService.findByIdWithPassword(user.id);
-      if (!userWithPassword.password) {
-        this.logger.warn(`Password reset requested for user without password: ${user.id}`);
-        return {
-          message:
-            'If an account with that email exists, a password reset link has been sent.',
-        };
-      }
+  //     // Check if user has a password (not social login only)
+  //     const userWithPassword = await this.usersService.findByIdWithPassword(user.id);
+  //     if (!userWithPassword.password) {
+  //       this.logger.warn(`Password reset requested for user without password: ${user.id}`);
+  //       return {
+  //         message:
+  //           'If an account with that email exists, a password reset link has been sent.',
+  //       };
+  //     }
 
-      // Generate secure reset token
-      const resetToken = this.generateResetToken();
+  //     // Generate secure reset token
+  //     const resetToken = this.generateResetToken();
 
-      // Hash the token before storing
-      const hashedToken = this.hashToken(resetToken);
+  //     // Hash the token before storing
+  //     const hashedToken = this.hashToken(resetToken);
 
-      // Set token expiry (30 minutes)
-      const expiresAt = this.getTokenExpiry();
+  //     // Set token expiry (30 minutes)
+  //     const expiresAt = this.getTokenExpiry();
 
-      // Store hashed token and expiry in database
-      await this.userRepository.setPasswordResetToken(
-        user.id,
-        hashedToken,
-        expiresAt,
-      );
+  //     // Store hashed token and expiry in database
+  //     await this.userRepository.setPasswordResetToken(
+  //       user.id,
+  //       hashedToken,
+  //       expiresAt,
+  //     );
 
-      // Build reset link
-      const resetLink = this.buildResetLink(resetToken);
+  //     // Build reset link
+  //     const resetLink = this.buildResetLink(resetToken);
 
-      // Send email via SendGrid
-      try {
-        // Log user name for debugging
-        this.logger.info(`Sending password reset email to ${email} for user: ${user.firstName} ${user.lastName}`);
+  //     // Send email via SendGrid
+  //     try {
+  //       // Log user name for debugging
+  //       this.logger.info(`Sending password reset email to ${email} for user: ${user.firstName} ${user.lastName}`);
         
-        await this.emailService.sendPasswordResetEmail(
-          email,
-          resetLink,
-          user.firstName?.trim(),
-          user.lastName?.trim(),
-        );
-        this.logger.info(`Password reset email sent to ${email}`);
-      } catch (emailError) {
-        console.log(emailError, 'emailError in forgot password');
-        this.logger.error(`Failed to send password reset email to ${email}`, emailError);
-        // Don't throw - still return success message for security
-      }
+  //       await this.emailService.sendPasswordResetEmail(
+  //         email,
+  //         resetLink,
+  //         user.firstName?.trim(),
+  //         user.lastName?.trim(),
+  //       );
+  //       this.logger.info(`Password reset email sent to ${email}`);
+  //     } catch (emailError) {
+  //       console.log(emailError, 'emailError in forgot password');
+  //       this.logger.error(`Failed to send password reset email to ${email}`, emailError);
+  //       // Don't throw - still return success message for security
+  //     }
 
-      return {
-        message:
-          'If an account with that email exists, a password reset link has been sent.',
-      };
-    } catch (error) {
-      this.logger.error('Forgot password failed', error);
-      // Always return success message for security
-      return {
-        message:
-          'If an account with that email exists, a password reset link has been sent.',
-      };
-    }
-  }
+  //     return {
+  //       message:
+  //         'If an account with that email exists, a password reset link has been sent.',
+  //     };
+  //   } catch (error) {
+  //     this.logger.error('Forgot password failed', error);
+  //     // Always return success message for security
+  //     return {
+  //       message:
+  //         'If an account with that email exists, a password reset link has been sent.',
+  //     };
+  //   }
+  // }
 
   /**
    * Handles password reset with token
    * Validates token, checks expiry, and updates password
    */
-  async resetPassword(
-    model: ResetPasswordWithTokenModel,
-  ): Promise<{ message: string; userId: string }> {
-    try {
-      const { token, newPassword, confirmPassword } = model;
+  // async resetPassword(
+  //   model: ResetPasswordWithTokenModel,
+  // ): Promise<{ message: string; userId: string }> {
+  //   try {
+  //     const { token, newPassword, confirmPassword } = model;
 
-      if (!token || !newPassword || !confirmPassword) {
-        throw new BadRequestException('Token and new password are required');
-      }
+  //     if (!token || !newPassword || !confirmPassword) {
+  //       throw new BadRequestException('Token and new password are required');
+  //     }
 
-      if (newPassword !== confirmPassword) {
-        throw new BadRequestException('New password and confirm password do not match');
-      }
+  //     if (newPassword !== confirmPassword) {
+  //       throw new BadRequestException('New password and confirm password do not match');
+  //     }
 
-      // Hash the provided token to compare with stored hash
-      const hashedToken = this.hashToken(token);
+  //     // Hash the provided token to compare with stored hash
+  //     const hashedToken = this.hashToken(token);
 
-      // Find user by reset token
-      const user = await this.userRepository.findByPasswordResetToken(hashedToken);
+  //     // Find user by reset token
+  //     const user = await this.userRepository.findByPasswordResetToken(hashedToken);
 
-      if (!user) {
-        throw new BadRequestException('Invalid or expired reset token');
-      }
+  //     if (!user) {
+  //       throw new BadRequestException('Invalid or expired reset token');
+  //     }
 
-      // Hash the new password
-      const hashedPassword = await this.hashPassword(newPassword);
+  //     // Hash the new password
+  //     const hashedPassword = await this.hashPassword(newPassword);
 
-      // Update password and clear reset token
-      await this.userRepository.updatePassword(user.id, hashedPassword);
+  //     // Update password and clear reset token
+  //     await this.userRepository.updatePassword(user.id, hashedPassword);
 
-      this.logger.info(`Password reset successful for user ${user.id}`);
+  //     this.logger.info(`Password reset successful for user ${user.id}`);
 
-      return {
-        message: 'Password has been reset successfully',
-        userId: user.id,
-      };
-    } catch (error) {
-      this.logger.error('Reset password failed', error);
+  //     return {
+  //       message: 'Password has been reset successfully',
+  //       userId: user.id,
+  //     };
+  //   } catch (error) {
+  //     this.logger.error('Reset password failed', error);
 
-      if (
-        error instanceof BadRequestException ||
-        error instanceof InternalServerErrorException
-      ) {
-        throw error;
-      }
+  //     if (
+  //       error instanceof BadRequestException ||
+  //       error instanceof InternalServerErrorException
+  //     ) {
+  //       throw error;
+  //     }
 
-      throw new InternalServerErrorException('Failed to reset password', {
-        cause: new Error(`Resetting password failed: ${error?.message}`),
-      });
-    }
-  }
+  //     throw new InternalServerErrorException('Failed to reset password', {
+  //       cause: new Error(`Resetting password failed: ${error?.message}`),
+  //     });
+  //   }
+  // }
 
   /**
    * Generates a cryptographically secure random token
