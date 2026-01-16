@@ -24,7 +24,7 @@ export class SignUpRequestDto {
 
   @ApiPropertyOptional()
   @ValidateIf((o) => !o.googleId && !o.facebookId)
-  @IsStrongPassword({ message: 'Password must be strong and contain at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character' })
+  @IsStrongPassword({ message: 'Password must be strong' })
   @IsString()
   @IsNotEmpty({ message: 'Password is required for email sign up' })
   password?: string;

@@ -64,12 +64,6 @@ export class UserEntity {
   @Column({ nullable: true })
   facebookId: string;
 
-  @Column({ nullable: true })
-  passwordResetToken: string;
-
-  @Column({ nullable: true })
-  passwordResetExpires: Date;
-
   @CreateDateColumn()
   createdAt: Date;
 

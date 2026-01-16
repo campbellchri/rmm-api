@@ -6,7 +6,6 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
-
 import { v4 as uuid } from 'uuid';
 import { UsersService } from 'src/users/services/users.service';
 import { JWTTokenService } from 'src/common/jwtToken/jwtToken.service';
