@@ -201,5 +201,87 @@ export class UserRepository extends BaseRepository {
     await repository.save(user);
   }
 
+  async setPasswordResetToken(
+    userId: string,
+    hashedToken: string,
+    expiresAt: Date,
+    options?: IQueryOptions,
+  ): Promise<void> {
+    const { entityManager } = this.parseOptions(options);
+    const repository = entityManager.getRepository<UserEntity>(UserEntity);
+
+    const user = await repository.findOne({ where: { id: userId } });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    user.passwordResetToken = hashedToken;
+    user.passwordResetExpires = expiresAt;
+
+    await repository.save(user);
+  }
+
+  async findByPasswordResetToken(
+    hashedToken: string,
+    options?: IQueryOptions,
+  ): Promise<UserEntity | null> {
+    const { entityManager } = this.parseOptions(options);
+    const repository = entityManager.getRepository<UserEntity>(UserEntity);
+
+    const user = await repository.findOne({
+      where: { passwordResetToken: hashedToken },
+    });
+
+    if (!user) {
+      return null;
+    }
+
+    // Check if token has expired
+    if (user.passwordResetExpires && user.passwordResetExpires < new Date()) {
+      return null;
+    }
+
+    return user;
+  }
+
+  async clearPasswordResetToken(
+    userId: string,
+    options?: IQueryOptions,
+  ): Promise<void> {
+    const { entityManager } = this.parseOptions(options);
+    const repository = entityManager.getRepository<UserEntity>(UserEntity);
+
+    const user = await repository.findOne({ where: { id: userId } });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    user.passwordResetToken = null;
+    user.passwordResetExpires = null;
+
+    await repository.save(user);
+  }
+
+  async updatePassword(
+    userId: string,
+    hashedPassword: string,
+    options?: IQueryOptions,
+  ): Promise<void> {
+    const { entityManager } = this.parseOptions(options);
+    const repository = entityManager.getRepository<UserEntity>(UserEntity);
+
+    const user = await repository.findOne({ where: { id: userId } });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    user.password = hashedPassword;
+    // Clear reset token after password is updated
+    user.passwordResetToken = null;
+    user.passwordResetExpires = null;
+
+    await repository.save(user);
+  }
+
 }
 

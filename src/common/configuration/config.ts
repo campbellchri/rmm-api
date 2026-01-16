@@ -49,6 +49,10 @@ export default () => ({
         apiSecret: process.env.CLOUDINARY_API_SECRET,
         cloudName: process.env.CLOUDINARY_CLOUD_NAME,
     },
+    sendgrid: {
+        apiKey: process.env.SEND_GRID_API_KEY || process.env.SENDGRID_API_KEY,
+        fromEmail: process.env.SENDER_EMAIL || process.env.SENDGRID_FROM_EMAIL,
+    },
     // twilio: {
     //     accountSid: process.env.TWILIO_ACCOUNT_SID,
     //     authToken: process.env.TWILIO_AUTH_TOKEN,
